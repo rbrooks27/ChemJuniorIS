@@ -32,3 +32,6 @@ A brief description.
 | [Class Presentations](https://moodle-2526.wooster.edu/course/view.php?id=977&section=1#tabs-tree-start) | 5/5/26 | 
 | [Submit Paper #6: Full Proposal](https://moodle-2526.wooster.edu/mod/assign/view.php?id=37647) | 5/7/26 | Due by 12:00 pm |
 
+## Contact Information
+| **Name** | **Email** |**Website** | **Resume** |
+| Raelyn Brooks | (rbrooks27@wooster.edu)[rbrooks27@wooster.edu] | (Take a Look)[https://raelynbrooks.lovable.app/] | (What I have done)[https://drive.google.com/file/d/1RKe7XKl7V7Si8b1cSR8z6uchbAPMk0Tj/view?usp=sharing] |
