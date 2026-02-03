@@ -36,4 +36,4 @@ A brief description.
 
 | **Name** | **Email** |**Website** | **Resume** |
 | --------- | ------------ | ------------ |------------ |
-| Raelyn Brooks | (rbrooks27@wooster.edu)[rbrooks27@wooster.edu] | (Take a Look)[https://raelynbrooks.lovable.app/] | (What I have done)[https://drive.google.com/file/d/1RKe7XKl7V7Si8b1cSR8z6uchbAPMk0Tj/view?usp=sharing] |
+| Raelyn Brooks | [rbrooks27@wooster.edu](rbrooks27@wooster.edu) | [Take a Look](https://raelynbrooks.lovable.app/) | [What I have done](https://drive.google.com/file/d/1RKe7XKl7V7Si8b1cSR8z6uchbAPMk0Tj/view?usp=sharing) |
