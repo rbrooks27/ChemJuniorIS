@@ -3,15 +3,37 @@
 % To compile using latexmk on the command line, run the following: 
 % latexmk -pdf main.tex
 
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
+
+% ---------- Page formatting ----------
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
 \usepackage{setspace}
-\singlespace
-\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\onehalfspacing
+
+% ---------- Graphics ----------
 \usepackage{graphicx}
 \usepackage{float}
 
+% ---------- Math ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% ---------- Hyperlinks ----------
+% \usepackage{hyperref}
+
+% ---------- ACS bibliography ----------
+\usepackage{achemso}
+\setkeys{acs}{articletitle=true}
+
 \title{\textbf{Project Topic}}
 \author{Raelyn Brooks}
+\date{\today}
+
 
 \begin{document}
 
@@ -21,29 +43,38 @@
 The introduction will broadly introduce your topic, motivate it, and describe what will be done.
 
 \section{Related Works}
+Discuss prior research and how your work builds on or differs from existing studies.
 
 \section{Methodology}
 Dijkstra's algorithm was chosen for single-source shortest path computation on graphs with non-negative edge weights, following the implementation presented in CLRS~\cite{clrsAlgorithms}.
 
 \section{Results}
-An exemplary figure is shown in Figure~\ref{fig:dijkstra}. Any time a figure is used, it must have a capation and be directly referred to and discussed in the text.
+An exemplary figure is shown in Figure~\ref{fig:dijkstra}. Any time a figure is used, it must have a caption and be directly referred to and discussed in the text.
 
+% Figure placement options:
 %\begin{figure}[b] puts the image to the (closest) bottom of page
 %\begin{figure}[t] puts the image to the (closest) top of page
 %\begin{figure}[h] allows the image to float, putting it roughly wherever it was placed in the text.
-\begin{figure}[b] 
-\begin{center}
-  \includegraphics[width=5cm]{imgs/dijkstra.png}
-  \caption{Dijkstra's algorithm does not work on graphs with negative edge weights, as evidenced here.}
-  \label{fig:dijkstra}
- \end{center}
+%\begin{figure}[b] 
+%\begin{center}
+% \includegraphics[width=5cm]{imgs/dijkstra.png}
+%  \caption{Dijkstra's algorithm does not work on graphs with negative edge weights, as evidenced here.}
+%  \label{fig:dijkstra}
+% \end{center}
+%\end{figure}
+
+\begin{figure}[b]
+\centering
+\includegraphics[width=5cm]{imgs/dijkstra.png}
+\caption{Dijkstra's algorithm does not work on graphs with negative edge weights, as evidenced here.}
+\label{fig:dijkstra}
 \end{figure}
 
-
-
 \section{Conclusion}
+Summarize results, implications, and possible future work.
 
-\bibliographystyle{acm}
-\bibliography{bibliography.bib}
+% ---------- References ----------
+\bibliographystyle{achemso}
+\bibliography{bibliograph.bib}
 
 \end{document}
