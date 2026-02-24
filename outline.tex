@@ -31,7 +31,7 @@
 \setkeys{acs}{articletitle=true}
 
 % ---------- Title ----------
-\title{\textbf{Project Topic}}
+\title{\textbf{Computational Identification of Unknown Organic Contaminants and Molecules in Remote Environments via High-Resolution Mass Spectrometry}}
 \author{Raelyn Brooks}
 \date{\today}
 
@@ -39,11 +39,67 @@
 
 \maketitle
 
+\nocite{*}
 
+\section{Goal}
+Identification of unknown compounds by High-Resolution Mass Spectrometry (HRMS) in water samples from snow (precipitate) in the Himalayas/Tibet, with a particular focus on the long-range atmospheric transport of these organic contaminants to these remote areas. 
+The identification will be made using computational tools and software, including molecular networking or cluster analysis.
+
+\section{Introduction to Environmental Chemistry and the Widespread Problem of Organic Contamination}
+\subsection{The Global Problem: Widespread Dispersion of Anthropogenic Chemicals}
+The continuous release of anthropogenic chemicals, including herbicides, pharmaceuticals, industrial compounds, and plasticizers, has led to their pervasive presence in remote environments.
+These contaminants, often originating from human activities, are spread globally. 
+Specific examples of concern include pesticides (e.g., atrazine, detected across sampling sites), industrial compounds, polycyclic aromatic hydrocarbons (PAHs) from fossil fuel combustion and vehicle traffic, and plasticizers like dimethyl phthalate.
+Anthropogenic markers such as vanillin also indicate human influence on remote environments.
+The widespread nature of these chemicals poses significant environmental and ecological risks, necessitating comprehensive monitoring and mitigation strategies.
+
+\subsection{Why Remote Peaks? Kilimanjaro and the Himalayas as "Cold Traps"}
+Remote high-altitude regions such as the Qinghai-Tibetan Plateau (QTP), Mount Everest, Yuzhu Mountain, Haba Mountain, and Kilimanjaro serve as crucial indicators of global pollution.
+These areas generally lack significant local industrial activity, meaning that any detected contaminants are strong evidence of long-range atmospheric transport.
+he cold temperatures characteristic of these mountain environments slow the degradation rates of persistent organic pollutants (POPs), allowing them to accumulate in these remote ecosystems.
+This "cold-trapping" effect concentrates contaminants, making these regions particularly vulnerable to persistent global pollution.
+
+\subsection{Study Goal: Using HRMS to Move Beyond "Target Lists" and Identify the "Known Unknowns" in the Environment}
+Traditional targeted analyses often focus on a predefined list of known contaminants. 
+However, this approach can miss a vast array of "known unknowns" and entirely unknown compounds present in environmental samples.
+This project aims to employ non-targeted analysis and suspect screening using HRMS to comprehensively identify organic contaminants in high-altitude snow and water samples. 
+This methodology allows for the detection and characterization of a broader spectrum of pollutants, thereby enriching the understanding of contaminant fate and transport.
+
+\section{Atmospheric Chemistry \& Transport Mechanisms}
+\subsection{Atmospheric Entry: Primary Sources and Chemical Makeup}
+Organic contaminants enter the atmosphere through various primary sources, including industrial volatility, agricultural pesticide drift, fossil fuel combustion, burning of biomass, and vehicle emissions.
+Once airborne, these compounds can undergo various chemical transformations and interactions within the troposphere, influencing their persistence, reactivity, and transport potential.
+\subsection{The Grasshopper Effect (Multi-Hop Transport)}
+The "grasshopper effect" describes the cyclical process of volatilization, atmospheric transport, condensation, and deposition of semi-volatile organic compounds (SVOCs) from warmer to colder regions.
+This mechanism explains the accumulation of POPs in high-latitude and high-altitude "cold traps".
+This iterative process allows contaminants to travel vast distances from their emission sources to remote environments.
+\subsection{Deposition Physics: Snow as an Efficient "Scrubber" of Organic Pollutants}
+Snowfall serves as a highly efficient mechanism for the atmospheric scavenging and deposition of organic pollutants.
+Compared to rain, snow is often considered a more effective "scrubber" of organic chemicals due to its larger surface area and the process of cold condensation.
+As snow melts, these accumulated contaminants are re-released into the environment, potentially impacting local hydrology and ecosystems.
+The study of snow samples provides a valuable proxy for atmospheric deposition, reflecting long-range transport patterns.
+\subsection{Regional Pathways: Indian Summer Monsoon and "Atmospheric Brown Clouds"}
+In regions like the Tibetan Plateau, specific meteorological phenomena play a critical role in contaminant transport. 
+The Indian Summer Monsoon (ISM) and "Atmospheric Brown Clouds" (ABCs), laden with pollutants from the densely populated Indo-Gangetic Plain, act as significant carriers of pollution. 
+These systems facilitate the upward and northward transport of a wide range of organic contaminants, depositing them onto the Himalayan and Tibetan ranges.
+Understanding these regional atmospheric pathways is essential for tracing the origins and predicting the deposition patterns of contaminants in these high-altitude ecosystems.
+\section{Analytical Methodology: The HRMS Workflow for Non-Target Identification}
+\subsection{Detection Precision: Why HRMS (Orbitrap or Q-TOF) is Required}
+High-Resolution Mass Spectrometry (HRMS), specifically instruments like Orbitrap or Quadrupole Time-of-Flight (Q-TOF), is crucial for non-target analysis due to its ability to provide "Exact Mass" measurements with very low mass error (typically <5 ppm).
+This high precision allows for the accurate determination of elemental compositions, which is the first critical step in identifying unknown compounds, differentiating them from isobaric interferences, and enhancing the confidence in structural elucidation.
+\subsection{From Samples to Data: Solid-Phase Extraction (SPE)}
+After collection, melted snow and water samples must undergo preparation to concentrate trace organic contaminants. Solid-Phase Extraction (SPE) is a widely used and effective method for this purpose.
+SPE selectively extracts and concentrates organic compounds from large volumes of aqueous samples, enhancing their detectability by HRMS while removing interfering matrix components.
+\subsection{Computational Identification and Molecular Networking: Moving Beyond Libraries}
+This powerful bioinformatics approach groups unknown molecules by their structural similarity based on their MS/MS fragmentation patterns.
+Molecular networking helps visualize relationships between compounds, identify transformation products, and prioritize features for further investigation, even if they are not in existing spectral libraries.
+\subsection{In Silico Tools:}
+ For molecules not found in any existing database, advanced in silico tools such as SIRIUS, MetFrag, and CSI:FingerID are indispensable.
+ These tools predict molecular formulas and potential structures by analyzing exact mass, isotopic patterns, and fragmentation spectra, significantly aiding in the structural elucidation of truly unknown environmental contaminants.
 
 
 % ---------- References ----------
- \bibliographystyle{achemso}
+\bibliographystyle{plain-annote}
 \bibliography{bibliography}
 
 \end{document}
