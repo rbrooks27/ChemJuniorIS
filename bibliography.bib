@@ -3,322 +3,226 @@
 % provided by most web sites that allow you to export citations. The string
 % "clrsAlgorithms" is a citation key, and if you were citing the source in a
 % document you would use \cite{clrsAlgorithms}.
+
 @mastersthesis{Wenkai,
-  author = {Fan, Wenkai},
-  title = {Suspect Screening and Semi-Quantification of Organic Contaminants in Snow and Water Samples on the Qinghai--Tibet Plateau and High Mountain Regions},
-  school = {The College of Wooster},
+  author  = {Fan, Wenkai},
+  title   = {Suspect Screening and Semi-Quantification of Organic Contaminants in Snow and Water Samples on the Qinghai--Tibet Plateau and High Mountain Regions},
+  school  = {The College of Wooster},
   address = {Wooster, OH},
-  year = {2025},
-  type = {Undergraduate Thesis},
-  note = {Unpublished thesis},
-
-  abstract = {This study investigates the presence of environmental contaminants in high-altitude water and snow samples collected from remote regions, including Mount Everest, Qinghai lakes, Tibetan rivers, Kilimanjaro, and multiple alpine snow environments. Results reveal herbicides, pharmaceuticals, industrial compounds, and anthropogenic markers, demonstrating long-range pollutant transport and human impact even in remote ecosystems.},
-
-  annote = {This thesis provides a comprehensive application of suspect screening and semi-quantitative analysis of organic contaminants in remote high-altitude environments using high-resolution mass spectrometry (HRMS). 
-  While the primary focus is on environmental chemistry and pollution transport mechanisms, it also exemplifies the use of advanced analytical techniques and data interpretation methods relevant to computational approaches for molecule identification. 
-  The utilization of HRMS data to detect and tentatively identify a broad spectrum of known contaminants aligns with the goals of non-targeted analysis in metabolomics and environmental studies. 
-  Furthermore, the study's emphasis on suspect screening, combined with high-resolution data acquisition, underscores the importance of sophisticated data mining strategies—such as molecular networking, clustering, and multidimensional analysis—in revealing unknown or unexpected compounds. 
-  As such, this work offers valuable insights and a real-world context for developing computational frameworks aimed at the annotation and structural elucidation of unknown molecules, especially when integrated with molecular networking tools and machine learning algorithms in cheminformatics.}
+  year    = {2025},
+  type    = {Undergraduate honors thesis},
+  note    = {Unpublished thesis},
+  annote  = {This thesis investigates environmental contaminants in high-altitude water and snow samples using high-resolution mass spectrometry. It highlights the importance of computational methods for molecule identification and demonstrates how suspect screening and advanced data analysis techniques can reveal pollutants in remote ecosystems.}
 }
 
-@article{Kind,
-author = {Kind, Tobias and Tsugawa, Hiroshi and Cajka, Tomas and Ma, Yan and Lai, Zijuan and Mehta, Sajjan S. and Wohlgemuth, Gert and Barupal, Dinesh Kumar and Showalter, Megan R. and Arita, Masanori and Fiehn, Oliver},
-title = {Identification of small molecules using accurate mass MS/MS search},
-journal = {Mass Spectrometry Reviews},
-volume = {37},
-number = {4},
-pages = {513-532},
-keywords = {compound identification, high-resolution mass spectrometry, library search, tandem mass spectrometry},
-doi = {https://doi.org/10.1002/mas.21535},
-url = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/mas.21535},
-eprint = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/pdf/10.1002/mas.21535},
-abstract = {Tandem mass spectral library search (MS/MS) is the fastest way to correctly annotate MS/MS spectra from screening small molecules in fields such as environmental analysis, drug screening, lipid analysis, and metabolomics. The confidence in MS/MS-based annotation of chemical structures is impacted by instrumental settings and requirements, data acquisition modes including data-dependent and data-independent methods, library scoring algorithms, as well as post-curation steps. We critically discuss parameters that influence search results, such as mass accuracy, precursor ion isolation width, intensity thresholds, centroiding algorithms, and acquisition speed. A range of publicly and commercially available MS/MS databases such as NIST, MassBank, MoNA, LipidBlast, Wiley MSforID, and METLIN are surveyed. In addition, software tools including NIST MS Search, MS-DIAL, Mass Frontier, SmileMS, Mass++, and XCMS2 to perform fast MS/MS search are discussed. MS/MS scoring algorithms and challenges during compound annotation are reviewed. Advanced methods such as the in silico generation of tandem mass spectra using quantum chemistry and machine learning methods are covered. Community efforts for curation and sharing of tandem mass spectra that will allow for faster distribution of scientific discoveries are discussed.},
-year = {2018},
-annote = {This review explains how to identify small molecules using high-resolution MS/MS techniques. 
-It highlights the importance of spectral libraries that include experimental data and computer-generated spectra. 
-The article covers methods for creating in silico spectra using various software tools and developing new databases. 
-It also stresses the need for proper data curation and quality control. From my point of view, it provides valuable insights into how computational approaches and shared spectral resources can aid in analyzing complex samples.
-These methods are especially helpful for identifying unknown compounds in environmental or natural product research.}
+@article{Kind2018,
+  author  = {Kind, Tobias and Tsugawa, Hiroshi and Cajka, Tomas and Ma, Yan and Lai, Zijuan and Mehta, Sajjan S. and Wohlgemuth, Gert and Barupal, Dinesh Kumar and Showalter, Megan R. and Arita, Masanori and Fiehn, Oliver},
+  title   = {Identification of Small Molecules Using Accurate Mass {MS/MS} Search},
+  journal = {Mass Spectrometry Reviews},
+  volume  = {37},
+  number  = {4},
+  pages   = {513--532},
+  year    = {2018},
+  doi     = {10.1002/mas.21535},
+  url     = {https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/mas.21535},
+  annote  = {This review explains how small molecules are identified using high-resolution MS/MS techniques and spectral libraries. It highlights computational approaches and shared databases that assist in analyzing complex environmental and biological samples.}
 }
 
-@article{Schymanski,
-author = {Schymanski, Emma L. and Jeon, Junho and Gulde, Rebekka and Fenner, Kathrin and Ruff, Matthias and Singer, Heinz P. and Hollender, Juliane},
-title = {Identifying Small Molecules via High Resolution Mass Spectrometry: Communicating Confidence},
-journal = {Environmental Science \& Technology},
-volume = {48},
-number = {4},
-pages = {2097-2098},
-year = {2014},
-doi = {10.1021/es5002105},
-URL = {https://doi.org/10.1021/es5002105},
-eprint = {https://doi.org/10.1021/es5002105},
-annote = {
-This viewpoint article is essential for non-targeted analysis (NTA) research using HR-MS, such as the computational identification of unknown contaminants in remote environments. 
-It proposes a five-level confidence system for molecular identification, addressing the limitations inherent when reference standards are absent. 
-The framework provides the necessary rigor for reporting the results of computational tools like molecular networking or cluster analysis. 
-Specifically, Level 3 (Tentative candidate(s)) helps classify structures where computational methods suggest isomers, while Levels 4 and 5 establish clear reporting standards for masses and formulas that serve as critical input or nodes in network-based analysis, enabling transparent data exchange and future traceability of unknown molecules.
-}
+@article{Schymanski2014,
+  author  = {Schymanski, Emma L. and Jeon, Junho and Gulde, Rebekka and Fenner, Kathrin and Ruff, Matthias and Singer, Heinz P. and Hollender, Juliane},
+  title   = {Identifying Small Molecules via High Resolution Mass Spectrometry: Communicating Confidence},
+  journal = {Environmental Science \& Technology},
+  volume  = {48},
+  number  = {4},
+  pages   = {2097--2098},
+  year    = {2014},
+  doi     = {10.1021/es5002105},
+  url     = {https://doi.org/10.1021/es5002105},
+  annote  = {This paper proposes a five-level confidence framework for identifying molecules in high-resolution mass spectrometry. The system is widely used in non-targeted analysis and provides standardized reporting for tentative and confirmed molecular identifications.}
 }
 
-@article{Ye,
-author = {Ye, Weiting and Li, Jingcheng and Cai, Xianfa},
-title = {Mfgnn: Multi-Scale Feature-Attentive Graph Neural Networks for Molecular Property Prediction},
-journal = {Journal of Computational Chemistry},
-volume = {46},
-number = {3},
-pages = {e70011},
-keywords = {deep learning, graph neural network, molecular property prediction},
-doi = {https://doi.org/10.1002/jcc.70011},
-url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.70011},
-eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/jcc.70011},
-abstract = {ABSTRACT In the realm of artificial intelligence-driven drug discovery (AIDD), accurately predicting the influence of molecular structures on their properties is a critical research focus. While deep learning models based on graph neural networks (GNNs) have made significant advancements in this area, prior studies have primarily concentrated on molecule-level representations, often neglecting the impact of functional group structures and the potential relationships between fragments on molecular property predictions. To address this gap, we introduce the multi-scale feature attention graph neural network (MfGNN), which enhances traditional atom-based molecular graph representations by incorporating fragment-level representations derived from chemically synthesizable BRICS fragments. MfGNN not only effectively captures both the structural information of molecules and the features of functional groups but also pays special attention to the potential relationships between fragments, exploring how they collectively influence molecular properties. This model integrates two core mechanisms: a graph attention mechanism that captures embeddings of molecules and functional groups, and a feature extraction module that systematically processes BRICS fragment-level features to uncover relationships among the fragments. Our comprehensive experiments demonstrate that MfGNN outperforms leading machine learning and deep learning models, achieving state-of-the-art performance in 8 out of 11 learning tasks across various domains, including physical chemistry, biophysics, physiology, and toxicology. Furthermore, ablation studies reveal that the integration of multi-scale feature information and the feature extraction module enhances the richness of molecular features, thereby improving the model's predictive capabilities.},
-year = {2025},
-annote = {This study introduces MfGNN, a multi-scale feature-attentive graph neural network designed for molecular property prediction by capturing both atom-level and fragment-level structural features. 
-While its primary focus is on predicting molecular properties, the methodologies—particularly the integration of fragment-based representations and inter-fragment relationship modeling—offer valuable insights for non-targeted analysis in high-resolution mass spectrometry. 
-Its ability to systematically incorporate substructural information and learn complex molecular relationships aligns with the objectives of molecular networking and cluster analysis, moving beyond traditional structure assignment based solely on mass spectra. 
-Incorporating such graph-based machine learning frameworks can enhance the annotation, classification, and clustering of unknown molecules in environmental samples, especially in remote and contaminated regions. 
-Therefore, this work provides a computationally advanced approach that can significantly contribute to the development of chemoinformatics tools for high-resolution mass spectrometry in non-targeted environmental studies.}
+@article{Ye2025,
+  author  = {Ye, Weiting and Li, Jingcheng and Cai, Xianfa},
+  title   = {{MfGNN}: Multi-Scale Feature-Attentive Graph Neural Networks for Molecular Property Prediction},
+  journal = {Journal of Computational Chemistry},
+  volume  = {46},
+  number  = {3},
+  pages   = {e70011},
+  year    = {2025},
+  doi     = {10.1002/jcc.70011},
+  url     = {https://onlinelibrary.wiley.com/doi/10.1002/jcc.70011},
+  annote  = {This study introduces a graph neural network model for molecular property prediction using atom-level and fragment-level information. The methods demonstrate how machine learning can capture structural relationships between molecular fragments, offering insights relevant to computational identification of unknown molecules.}
 }
 
 @article{Manz,
-author = {Manz, K. E., Feerick, A., Braun, J. M., Feng, Y. L., Hall, A., Koelmel, J., Manzano, C., Newton, S. R., Pennell, K. D., Place, B. J., Godri Pollitt, K. J., Prasse, C., & Young, J. A.},
-title = {Non-targeted analysis (NTA) and suspect screening analysis (SSA): A review of examining the chemical exposome},
-journal = {Journal of Exposure Science & Environmental Epidemiology},
-volume = {33(4)},
-pages = {524-536},
-keywords = {deep learning, graph neural network, molecular property prediction},
-doi = {https://doi.org/10.1038/s41370-023-00574-6},
-url = {https://www.nature.com/articles/s41370-023-00574-6},
-abstract = {Non-targeted analysis (NTA) and suspect screening analysis (SSA) are powerful techniques that rely on high-resolution mass spectrometry (HRMS) and computational tools to detect and identify unknown or suspected chemicals in the exposome. Fully understanding the chemical exposome requires characterization of both environmental media and human specimens. As such, we conducted a review to examine the use of different NTA and SSA methods in various exposure media and human samples, including the results and chemicals detected. The literature review was conducted by searching literature databases, such as PubMed and Web of Science, for keywords, such as “non-targeted analysis”, “suspect screening analysis” and the exposure media. Sources of human exposure to environmental chemicals discussed in this review include water, air, soil/sediment, dust, and food and consumer products. The use of NTA for exposure discovery in human biospecimen is also reviewed. The chemical space that has been captured using NTA varies by media analyzed and analytical platform. In each media the chemicals that were frequently detected using NTA were: per- and polyfluoroalkyl substances (PFAS) and pharmaceuticals in water, pesticides and polyaromatic hydrocarbons (PAHs) in soil and sediment, volatile and semi-volatile organic compounds in air, flame retardants in dust, plasticizers in consumer products, and plasticizers, pesticides, and halogenated compounds in human samples. Some studies reviewed herein used both liquid chromatography (LC) and gas chromatography (GC) HRMS to increase the detected chemical space (16%); however, the majority (51%) only used LC-HRMS and fewer used GC-HRMS (32%). Finally, we identify knowledge and technology gaps that must be overcome to fully assess potential chemical exposures using NTA. Understanding the chemical space is essential to identifying and prioritizing gaps in our understanding of exposure sources and prior exposures.},
-year = {2023},
-annote = {This review article critically discusses the application of high-resolution mass spectrometry (HRMS) in non-targeted analysis (NTA) and suspect screening analysis (SSA) for environmental and human exposure assessment. 
-It highlights the importance of computational tools, database searching, and software workflows in identifying unknown chemicals within complex matrices. 
-Although traditional NTA focuses on assigning structures based on spectral data, this paper underscores emerging strategies such as spectral library matching, in silico predictions, and the use of software for molecular formula generation. 
-Importantly, it identifies gaps in open-source software development and emphasizes the need for advanced computational approaches such as molecular networking and cluster analysis to enhance the annotation and interpretation of unidentified HRMS features. 
-This aligns with my research focus on employing computational techniques to facilitate the molecular networking of unknown compounds detected in remote environmental samples. 
-It emphasizes moving beyond mere mass-based identification towards relationship-based clustering and annotation of molecular families. 
-The review's discussion on integrating multiple analytical platforms and expanding spectral libraries directly informs the development of machine learning and network-based tools for the comprehensive characterization of organic contaminants in extreme and understudied environments.}
+  author  = {Manz, K. E. and Feerick, A. and Braun, J. M. and Feng, Y. L. and Hall, A. and Koelmel, J. and Manzano, C. and Newton, S. R. and Pennell, K. D. and Place, B. J. and Godri Pollitt, K. J. and Prasse, C. and Young, J. A.},
+  title   = {Non-targeted Analysis ({NTA}) and Suspect Screening Analysis ({SSA}): A Review of Examining the Chemical Exposome},
+  journal = {Journal of Exposure Science \& Environmental Epidemiology},
+  volume  = {33},
+  number  = {4},
+  pages   = {524--536},
+  year    = {2023},
+  doi     = {10.1038/s41370-023-00574-6},
+  url     = {https://www.nature.com/articles/s41370-023-00574-6},
+  annote  = {This review examines the use of HRMS-based non-targeted analysis and suspect screening for identifying environmental contaminants in air, water, soil, and human samples. It highlights computational workflows and current limitations in exposome research.}
 }
 
-@article{Nino-Suastegui,
-title = {Non-targeted analysis and suspect screening of organic contaminants in temperate snowfall using liquid chromatography high-resolution mass spectrometry},
-journal = {Environmental Research},
-volume = {266},
-pages = {120494},
-year = {2025},
-issn = {0013-9351},
-doi = {https://doi.org/10.1016/j.envres.2024.120494},
-url = {https://www.sciencedirect.com/science/article/pii/S0013935124024010},
-author = {Stephanie Nino-Suastegui and Eve Painter and Jameson W. Sprankle and Jillian J. Morrison and Jennifer A. Faust and Rebekah Gray},
-keywords = {Non-targeted analysis, Suspect screening, Snow, High-resolution mass spectrometry, Environmental contaminants, Pesticides, SIRIUS},
-abstract = {Contaminants released into the atmosphere that undergo regional and long-range transport can deposit back to Earth through snowfall. 
-When snow melts, these contaminants re-enter the environment, sometimes far from their original emission sources. Here we present the first comprehensive characterization of organic contaminants in snow from North America. Fresh snowfall samples were collected in the central United States over a three-year period and measured by liquid chromatography high-resolution mass spectrometry for suspect screening and non-targeted analysis. 
-The resulting data set was screened against experimental MS/MS libraries and underwent supplemental in silico MS/MS analysis. In total, 91 possible compounds were tentatively identified in snow, and 17 were successfully confirmed and semi-quantified with reference standards. These contaminants were mostly anthropogenic in origin and included six herbicides, three insect repellants, one insecticide metabolite, and one fungicide. The most prominent compounds present in all samples were N-cyclohexylformamide (known contaminant in tire leachate), DEET (insect repellent), and dimethyl phthalate (plasticizer), with median deposition fluxes of 4032, 284, and 262 ng m−2, respectively. Three additional compounds were detected in 100% of samples: coumarin (phytochemical and fragrance additive), 5-methylbenzotriazole (antifreeze component), and quinoline (heterocyclic aromatic). The Peto-Peto test revealed statistically significant differences in deposition fluxes for these six contaminants (p < 0.05), with weak but statistically significant positive associations between coumarin and DEET and between coumarin and quinoline according to a Kendall's tau correlation analysis. These findings demonstrate the utility of in silico analysis to complement MS/MS matching with experimental databases. Even so, thousands of unidentified features remained in the data set, highlighting the limitations of current strategies in non-targeted analysis of environmental samples.},
-annote = {This paper by Nino-Suastegui et al. (2025), authored by a former student of my advisor working on non-targeted analysis of environmental contaminants, explores the use of liquid chromatography high-resolution mass spectrometry (LC-HRMS) combined with in silico tools like SIRIUS and CSI:FingerID for suspect screening and compound annotation in snow samples. 
-The study successfully identified 17 known organic contaminants, mostly anthropogenic, including herbicides, insecticides, and plasticizers, and demonstrated how computational methods can aid in tentatively identifying unknown features beyond traditional library matching. 
-The work emphasizes the challenge of numerous unidentified features remaining in environmental samples and shows that in silico analysis can complement existing databases, which is directly relevant to my research focus on improving computational techniques for molecule identification in complex environmental matrices.}
+@article{NinoSuastegui2025,
+  author  = {Nino-Suastegui, Stephanie and Painter, Eve and Sprankle, Jameson W. and Morrison, Jillian J. and Faust, Jennifer A. and Gray, Rebekah},
+  title   = {Non-targeted Analysis and Suspect Screening of Organic Contaminants in Temperate Snowfall Using Liquid Chromatography High-Resolution Mass Spectrometry},
+  journal = {Environmental Research},
+  volume  = {266},
+  pages   = {120494},
+  year    = {2025},
+  doi     = {10.1016/j.envres.2024.120494},
+  url     = {https://www.sciencedirect.com/science/article/pii/S0013935124024010},
+  annote  = {This study uses LC-HRMS and in silico analysis to identify organic contaminants deposited in snowfall across the United States, demonstrating the power of computational tools for suspect screening and compound identification.}
 }
 
-@article{Chao,
-author = {Chao, Alex and Minucci, Jeffrey M. and Ferland, Troy M. and Carr, E. Tyler and Janesch, Greg and Rizwan, Safia and Whitehead, Heather D. and Cathey, Tommy and Pu, Shirley and Brunelle, Laura D. and Batt, Angela L. and Sobus, Jon R. and Williams, Antony J.},
-title = {Prioritizing Chemical Candidates from Non-targeted Analysis Using Metadata, Spectral Similarity, and Hazard Scoring within INTERPRET NTA},
-journal = {Analytical Chemistry},
-volume = {97},
-number = {29},
-pages = {15904-15912},
-year = {2025},
-doi = {10.1021/acs.analchem.5c02223},
-note ={PMID: 40670324},
-URL = {https://doi.org/10.1021/acs.analchem.5c02223},
-eprint = {https://doi.org/10.1021/acs.analchem.5c02223},
-annote = {This study introduces INTERPRET NTA, a computational tool that enhances non-targeted analysis (NTA) by integrating spectral similarity, metadata, and hazard data to prioritize chemical candidates detected via high-resolution mass spectrometry (HRMS). 
-While traditional NTA approaches focus on structure annotation based primarily on mass spectral matching, this work emphasizes data-driven prioritization and visualization strategies that facilitate the identification of relevant chemicals within complex environmental matrices. 
-The methodologies described, particularly the use of spectral similarity scoring and interactive visualization, align with advanced computational approaches such as molecular networking and cluster analysis. 
-These techniques are critical for exploring unknown molecules in HRMS datasets. 
-Applying these strategies to remote environmental samples like those from Mount Everest, Kilimanjaro, or Tibetan rivers could significantly enhance the discovery and characterization of unannotated organic contaminants by enabling network-based clustering and contextual prioritization beyond mere structure assignment. 
-This work informs the development of computational frameworks that support the spectral and metadata-driven exploration of large and complex HRMS datasets, which is highly relevant for research efforts aiming to discover and annotate unknown environmental molecules in remote terrestrial and ecological contexts.}
+@article{Chao2025,
+  author  = {Chao, Alex and Minucci, Jeffrey M. and Ferland, Troy M. and Carr, E. Tyler and Janesch, Greg and Rizwan, Safia and Whitehead, Heather D. and Cathey, Tommy and Pu, Shirley and Brunelle, Laura D. and Batt, Angela L. and Sobus, Jon R. and Williams, Antony J.},
+  title   = {Prioritizing Chemical Candidates from Non-targeted Analysis Using Metadata, Spectral Similarity, and Hazard Scoring within {INTERPRET NTA}},
+  journal = {Analytical Chemistry},
+  volume  = {97},
+  number  = {29},
+  pages   = {15904--15912},
+  year    = {2025},
+  doi     = {10.1021/acs.analchem.5c02223},
+  annote  = {This work introduces the INTERPRET NTA computational framework, which integrates spectral similarity, metadata, and hazard scoring to prioritize chemical candidates in HRMS datasets.}
 }
 
-@article{Fisher,
-author = {Fisher, C.M., Peter, K.T., Newton, S.R. et al.},
-title = {Approaches for assessing performance of high-resolution mass spectrometry–based non-targeted analysis methods},
-journal = {Anal Bioanal Chem},
-volume = {414},
-pages = {6455-6471},
-year = {2022},
-doi = {https://doi.org/10.1007/s00216-022-04203-3},
-URL = {https://doi.org/10.1007/s00216-022-04203-3},
-annote = {This research paper provides a comprehensive overview of the current state and challenges associated with performance assessment of high-resolution mass spectrometry (HRMS)–based non-targeted analysis (NTA) methods, emphasizing the need for standardized metrics and frameworks. 
-For my study on computational identification of unknown molecules via HRMS, particularly in analyzing organic contaminants in remote environments such as Mount Everest, Mt. Kilimanjaro, and Tibetan rivers, this paper offers valuable insights into the evaluation criteria and reliability of NTA workflows beyond simple structural assignment. 
-It highlights the importance of robust performance metrics, which are critical when deploying computational approaches like molecular networking and cluster analysis to interpret complex environmental data. 
-The focus on qualitative performance metrics such as confidence in chemical identification can guide my development of algorithms for spectral clustering and molecular network construction. 
-These strategies will ensure meaningful differentiation of unknowns and proper assessment of confidence levels. Overall, the paper situates my computational methods within the broader context of NTA validity and underscores the necessity of standardized evaluation strategies. 
-These strategies are especially relevant when working with large, diverse datasets collected from remote or extreme locations.}
+@article{Schmid2021,
+  author  = {Schmid, Robin and Petras, Daniel and Nothias, Louis-Felix and Wang, Mingxun and Aron, Allegra T. and Jagels, Annika and Tsugawa, Hiroshi and others},
+  title   = {Ion Identity Molecular Networking for Mass Spectrometry-Based Metabolomics in the {GNPS} Environment},
+  journal = {Nature Communications},
+  volume  = {12},
+  pages   = {3832},
+  year    = {2021},
+  doi     = {10.1038/s41467-021-23953-9},
+  annote  = {This article presents Ion Identity Molecular Networking, a computational framework that links related ion species within mass spectrometry datasets to improve metabolite annotation and clustering.}
 }
 
-@article{Schmid,
-author = {Schmid, Robin, Daniel Petras, Louis-Félix Nothias, Mingxun Wang, Allegra T. Aron, Annika Jagels, Hiroshi Tsugawa et al.},
-title = {Ion Identity Molecular Networking for Mass Spectrometry-based Metabolomics in the GNPS Environment.},
-journal = {Nature Communications},
-volume = {12},
-number = {3832},
-year = {2021},
-doi = {https://doi.org/10.1038/s41467-021-23953-9},
-URL = {https://doi.org/10.1038/s41467-021-23953-9},
-annote = {This research article on Ion Identity Molecular Networking (IIMN) significantly advances the field of non-targeted metabolomics by providing a robust computational framework for connecting different ion species of the same molecule within high-resolution mass spectrometry data. 
-While much of the prior work in my project focuses on identifying unknown organic contaminants in remote environments such as Mount Everest, Mt. Kilimanjaro, and Tibet River—areas where many compounds remain uncharacterized—this paper offers valuable insights into how molecular networking can be used to cluster related ions and structurally similar molecules beyond simple mass-to-charge matching. 
-The integration of ion identity networks into molecular networking enhances the ability to propagate annotations, expand spectral libraries, and improve the connectivity of unknown features. 
-This ultimately facilitates more comprehensive and accurate characterization of complex environmental samples. 
-I see this approach as a vital computational tool for my research, enabling me to better understand the relationships between unknown molecules and known clusters, and to develop a more effective non-targeted analysis framework grounded in chemistry and computational analysis.}
+@article{Ernst2019,
+  author  = {Ernst, Madeleine and Kang, Kyo Bin and Caraballo-Rodríguez, Andrés Mauricio and Nothias, Louis-Felix and Wandy, Joe and Chen, Christopher and Wang, Mingxun and others},
+  title   = {{MolNetEnhancer}: Enhanced Molecular Networks by Integrating Metabolome Mining and Annotation Tools},
+  journal = {Metabolites},
+  volume  = {9},
+  number  = {7},
+  pages   = {144},
+  year    = {2019},
+  doi     = {10.3390/metabo9070144},
+  annote  = {MolNetEnhancer integrates molecular networking with multiple annotation tools to improve structural interpretation of complex metabolomics datasets.}
 }
 
-@Article{Ernst,
-AUTHOR = {Ernst, Madeleine and Kang, Kyo Bin and Caraballo-Rodríguez, Andrés Mauricio and Nothias, Louis-Felix and Wandy, Joe and Chen, Christopher and Wang, Mingxun and Rogers, Simon and Medema, Marnix H. and Dorrestein, Pieter C. and van der Hooft, Justin J.J.},
-TITLE = {MolNetEnhancer: Enhanced Molecular Networks by Integrating Metabolome Mining and Annotation Tools},
-JOURNAL = {Metabolites},
-VOLUME = {9},
-YEAR = {2019},
-NUMBER = {7},
-ARTICLE-NUMBER = {144},
-URL = {https://www.mdpi.com/2218-1989/9/7/144},
-PubMedID = {31315242},
-ISSN = {2218-1989},
-ABSTRACT = {Metabolomics has started to embrace computational approaches for chemical interpretation of large data sets. Yet, metabolite annotation remains a key challenge. Recently, molecular networking and MS2LDA emerged as molecular mining tools that find molecular families and substructures in mass spectrometry fragmentation data. Moreover, in silico annotation tools obtain and rank candidate molecules for fragmentation spectra. Ideally, all structural information obtained and inferred from these computational tools could be combined to increase the resulting chemical insight one can obtain from a data set. However, integration is currently hampered as each tool has its own output format and efficient matching of data across these tools is lacking. Here, we introduce MolNetEnhancer, a workflow that combines the outputs from molecular networking, MS2LDA, in silico annotation tools (such as Network Annotation Propagation or DEREPLICATOR), and the automated chemical classification through ClassyFire to provide a more comprehensive chemical overview of metabolomics data whilst at the same time illuminating structural details for each fragmentation spectrum. We present examples from four plant and bacterial case studies and show how MolNetEnhancer enables the chemical annotation, visualization, and discovery of the subtle substructural diversity within molecular families. We conclude that MolNetEnhancer is a useful tool that greatly assists the metabolomics researcher in deciphering the metabolome through combination of multiple independent in silico pipelines.},
-DOI = {10.3390/metabo9070144},
-annote = {This paper on MolNetEnhancer aligns closely with my research focus on the computational identification of unknown molecules using high-resolution mass spectrometry. 
-While traditional approaches often rely solely on structure annotation for unknowns, MolNetEnhancer exemplifies an advanced, integrative methodology that leverages molecular networking, substructure discovery (MS2LDA), and in silico annotation tools to explore the chemical diversity within complex datasets. 
-Its emphasis on non-targeted, cluster-based analysis for natural and synthetic metabolomes provides a valuable framework for my work, particularly in analyzing organic contaminants or complex mixtures from remote areas such as Mount Everest, Mt. Kilimanjaro, and Tibet River. 
-By employing similar network-based strategies, I can enhance the detection, classification, and structural inference of unknown molecules beyond mere mass data, facilitating deeper insights into uncharacterized environmental chemicals through computational metabolomics.}
+@article{Olivon2017,
+  author  = {Olivon, Florent and Grelier, Gwendal and Roussi, Fanny and Litaudon, Marc and Touboul, David},
+  title   = {{MZmine 2} Data Preprocessing to Enhance Molecular Networking Reliability},
+  journal = {Analytical Chemistry},
+  volume  = {89},
+  number  = {15},
+  pages   = {7836--7840},
+  year    = {2017},
+  doi     = {10.1021/acs.analchem.7b01563},
+  annote  = {This study improves molecular networking workflows through data preprocessing using MZmine 2, demonstrating how careful data processing can improve clustering and compound annotation accuracy.}
 }
 
-@article{Olivon,
-author = {Olivon, Florent and Grelier, Gwendal and Roussi, Fanny and Litaudon, Marc and Touboul, David},
-title = {MZmine 2 Data-Preprocessing To Enhance Molecular Networking Reliability},
-journal = {Analytical Chemistry},
-volume = {89},
-number = {15},
-pages = {7836-7840},
-year = {2017},
-doi = {10.1021/acs.analchem.7b01563},
-note ={PMID: 28644610},
-URL = {https://doi.org/10.1021/acs.analchem.7b01563},
-eprint = {https://doi.org/10.1021/acs.analchem.7b01563},
-annote = {This paper by Olivon et al. (2017) provides valuable insights into improving molecular networking workflows for untargeted mass spectrometry data analysis. 
-It addresses limitations related to isomer resolution, quantification, and compound annotation by integrating MZmine 2 and custom Python scripts. 
-Although the study focuses on natural products and plant extracts, its approach to preprocessing high-resolution MS/MS data can be adapted to my research on non-targeted analysis of organic contaminants in remote environments such as Mount Everest, Mt. Kilimanjaro, and Tibet River. 
-The methodology's emphasis on resolving isomers, incorporating retention time into clustering, and assigning molecular formulas aligns with my goal of computationally identifying unknown molecules beyond simple mass-based annotation. 
-This work demonstrates how rigorous data preprocessing combined with advanced clustering techniques can improve structural annotation accuracy. 
-It is highly relevant for developing robust machine learning assisted molecular networking pipelines in environmental and analytical chemistry contexts.}
+@article{Zhu2023,
+  author  = {Zhu, Weimin and Zhang, Yi and Zhao, Duancheng and Xu, Jianrong and Wang, Ling},
+  title   = {{HiGNN}: A Hierarchical Informative Graph Neural Network for Molecular Property Prediction},
+  journal = {Journal of Chemical Information and Modeling},
+  volume  = {63},
+  number  = {1},
+  pages   = {43--55},
+  year    = {2023},
+  doi     = {10.1021/acs.jcim.2c01099},
+  annote  = {This paper introduces HiGNN, a graph neural network architecture designed to capture hierarchical molecular features for property prediction, demonstrating the potential of machine learning in molecular analysis.}
 }
 
-@article{Zhu,
-author = {Zhu, Weimin and Zhang, Yi and Zhao, Duancheng and Xu, Jianrong and Wang, Ling},
-title = {HiGNN: A Hierarchical Informative Graph Neural Network for Molecular Property Prediction Equipped with Feature-Wise Attention},
-journal = {Journal of Chemical Information and Modeling},
-volume = {63},
-number = {1},
-pages = {43-55},
-year = {2023},
-doi = {10.1021/acs.jcim.2c01099},
-note ={PMID: 36519623},
-URL = {https://doi.org/10.1021/acs.jcim.2c01099},
-eprint = {https://doi.org/10.1021/acs.jcim.2c01099},
-annote = {This paper on HiGNN offers valuable insights into leveraging advanced graph neural network architectures for molecular property prediction by incorporating hierarchical information and feature-wise attention mechanisms. 
-While my research focuses on the computational identification of unknown molecules through high-resolution mass spectrometry in remote environments, the methodologies presented in this study are highly relevant for developing more sophisticated algorithms for non-targeted analysis. 
-Specifically, the approach of molecular fragmentation and hierarchical representation can be adapted to analyze mass spectral data, enabling more accurate clustering and molecular networking of unknown organic contaminants. 
-Integrating such deep learning models can enhance our capacity to classify and interpret complex datasets beyond traditional structure assignment, making them a promising tool in the non-targeted analysis of environmental samples in extreme and underexplored locations.}
+@article{Herbert2006,
+  author  = {Herbert, B. M. J. and Villa, S. and Halsall, C. J.},
+  title   = {Chemical Interactions with Snow: Understanding the Behavior and Fate of Semi-Volatile Organic Compounds in Snow},
+  journal = {Ecotoxicology and Environmental Safety},
+  volume  = {63},
+  number  = {1},
+  pages   = {3--16},
+  year    = {2006},
+  doi     = {10.1016/j.ecoenv.2005.05.012}
 }
 
-@article{HERBERT,
-title = {Chemical interactions with snow: Understanding the behavior and fate of semi-volatile organic compounds in snow},
-journal = {Ecotoxicology and Environmental Safety},
-volume = {63},
-number = {1},
-pages = {3-16},
-year = {2006},
-note = {The Role of High Mountains in the Global Transport of Persistent Organic Pollutants},
-issn = {0147-6513},
-doi = {https://doi.org/10.1016/j.ecoenv.2005.05.012},
-url = {https://www.sciencedirect.com/science/article/pii/S0147651305001314},
-author = {B.M.J. Herbert and S. Villa and C.J. Halsall},
-keywords = {Arctic, Alpine, Polar, Persistent organic pollutants, Polychlorinated biphenyls},
-abstract = {Snow plays an important role in providing atmospherically derived semi-volatile organic compounds (SVOCs) to regions of high latitude and altitude. The accumulated winter snowpack serves as a reservoir for SVOCs, which may then be released to arctic/alpine catchments during seasonal snowmelt or entrained into deeper layers of snow and ice. This paper provides a review of the occurrence of SVOCs in snow, exploring sampling methodologies and field measurements. Furthermore, chemical fate following snowfall and the propensity of SVOCs to undergo revolatilization with snow metamorphosis are examined along with air–snow partitioning and the role of physical parameters such as snow density and snow surface area in controlling vapor-sorbed levels. Snowmelt and firnification processes are described, and the latter are related to SVOC measurements made in deeper snow layers and glacial ice cores. Evidence is provided that suggests that those SVOCs that possess relatively higher snow interfacial/air partitioning coefficients (Kiasnow) or lower Henry's Law constants may be more efficiently retained in snow, with implications for the occurrence of currently used pesticides in the temperate mountain snowpack.},
-annote = {This article highlights the importance of understanding the behavior and fate of semi-volatile organic compounds (SVOCs) in snow, particularly in the context of high latitude and altitude regions. The review of sampling methodologies and field measurements provides valuable insights for researchers studying the environmental impact of SVOCs in snow-covered areas.}
+@article{Daly2005,
+  author  = {Daly, Gillian L. and Wania, Frank},
+  title   = {Organic Contaminants in Mountains},
+  journal = {Environmental Science \& Technology},
+  volume  = {39},
+  number  = {2},
+  pages   = {385--398},
+  year    = {2005},
+  doi     = {10.1021/es048859u}
 }
 
-@article{Daly,
-author = {Daly, Gillian L. and Wania, Frank},
-title = {Organic Contaminants in Mountains},
-journal = {Environmental Science \& Technology},
-volume = {39},
-number = {2},
-pages = {385-398},
-year = {2005},
-doi = {10.1021/es048859u},
-    note ={PMID: 15707037},
-
-URL = {https://doi.org/10.1021/es048859u},
-eprint = {https://doi.org/10.1021/es048859u},
-annote = {This article reviews the occurrence and fate of organic contaminants in mountainous regions, highlighting the unique challenges posed by these environments for environmental monitoring and remediation efforts.}
-}
-
-@book{Blais,
-  title     = {Environmental Contaminants: Using Natural Archives to Track Sources and Long-Term Trends of Pollution},
+@book{Blais2015,
   editor    = {Blais, Jules M. and Rosen, Michael R. and Smol, John P.},
-  year      = {2015},
-  publisher = {Springer Dordrecht},
-  series    = {Developments in Paleoenvironmental Research},
-  volume    = {18},
-  doi       = {10.1007/978-94-017-9541-8},
-  isbn      = {978-94-017-9540-1},
+  title     = {Environmental Contaminants: Using Natural Archives to Track Sources and Long-Term Trends of Pollution},
+  publisher = {Springer},
   address   = {Dordrecht},
-  annote    = {This book provides a comprehensive overview of the use of natural archives, such as sediments and ice cores, to track the sources and long-term trends of environmental contaminants. It highlights the importance of understanding historical pollution patterns to inform current environmental management strategies.}
+  year      = {2015},
+  doi       = {10.1007/978-94-017-9541-8}
 }
 
-@article{Xu,
-author = {Xu, Yue and Zhang, Gan and Li, Jun and Chakraborty, Paromita and Li, Hua and Liu, Xiang},
-year = {2011},
-month = {09},
-pages = {3119-27},
-title = {Long-range atmospheric transport of persistent organochlorinated compounds from south and mainland south-eastern Asia to a remote mountain site in south-western China},
-volume = {13},
-journal = {Journal of environmental monitoring : JEM},
-doi = {10.1039/c1em10470e},
-annote = {This article highlights the importance of understanding the long-range atmospheric transport of persistent organochlorinated compounds, particularly in the context of remote mountain regions. The findings contribute to the broader knowledge of how pollutants are distributed in mountainous environments and their potential impacts on local ecosystems.}
+@article{Xu2011,
+  author  = {Xu, Yue and Zhang, Gan and Li, Jun and Chakraborty, Paromita and Li, Hua and Liu, Xiang},
+  title   = {Long-range Atmospheric Transport of Persistent Organochlorinated Compounds to a Remote Mountain Site in Southwestern China},
+  journal = {Journal of Environmental Monitoring},
+  volume  = {13},
+  pages   = {3119--3127},
+  year    = {2011},
+  doi     = {10.1039/c1em10470e}
 }
 
-@article{Kiss,
+@article{Kiss2009,
   author  = {Kiss, Aliz and Fries, Elke},
-  title   = {Occurrence of benzotriazoles in the rivers Main, Hengstbach, and Hegbach (Germany)},
+  title   = {Occurrence of Benzotriazoles in the Rivers Main, Hengstbach, and Hegbach (Germany)},
   journal = {Environmental Science and Pollution Research},
-  year    = {2009},
   volume  = {16},
   number  = {6},
   pages   = {702--710},
-  month   = {Sep},
-  doi     = {10.1007/s11356-009-0179-4},
-  url     = {https://doi.org/10.1007/s11356-009-0179-4},
-  issn    = {1614-7499},
-  annote = {This article investigates the occurrence of benzotriazoles, a class of emerging contaminants, in several rivers in Germany. The findings contribute to the understanding of the distribution and fate of these compounds in aquatic environments.}
+  year    = {2009},
+  doi     = {10.1007/s11356-009-0179-4}
 }
 
-@article{GRAY,
-title = {Suspect screening for pesticides in rain and snow using liquid chromatography high-resolution mass spectrometry},
-journal = {Atmospheric Environment},
-volume = {291},
-pages = {119389},
-year = {2022},
-issn = {1352-2310},
-doi = {https://doi.org/10.1016/j.atmosenv.2022.119389},
-url = {https://www.sciencedirect.com/science/article/pii/S135223102200454X},
-author = {Rebekah Gray and Eve Painter and Jameson W. Sprankle and Alex D. Crawford and Jillian J. Morrison and Marian Frazier and Jennifer A. Faust},
-keywords = {High-resolution mass spectrometry, Pesticides, Wet deposition, Precipitation, Suspect screening},
-abstract = {Pesticides are one of the only chemical contaminants that are purposefully introduced to the environment in large quantities. After application to crops, pesticides can be volatilized into the atmosphere and undergo medium to long-range transport. Through wet deposition, pesticides can be removed from the atmosphere far from their initial application site, posing a variety of environmental and health hazards, such as toxicity to terrestrial and aquatic species, crop damage, and poor air quality. Identifying pesticides and their degradation products in wet deposition is crucial to understanding how they are transported in the atmosphere. High-resolution mass spectrometry is a useful tool to carry out suspect screening on complex mixtures. However, suspect screening for pesticides in atmospheric waters is lacking. In this work, liquid chromatography coupled to quadrupole time-of-flight mass spectrometry (LC-QToF-MS) is used for the first time to screen for suspect pesticides in wet deposition. The composition of precipitation samples collected in the central United States from 2018 to 2021 was screened against a library of thousands of compounds, and the presence of 23 pesticides was confirmed using reference standards, including common herbicides such as atrazine, metolachlor, and alachlor, as well as three species that had never before been quantified in wet deposition: diphenamid, octhilinone, and desthio-prothioconazole. A significant increase in the deposition flux of many pesticides was observed at the start of planting season, suggesting local agricultural sources to the atmosphere. In addition, pesticides not commonly used locally were also detected, suggesting regional atmospheric transport. Using statistical analyses and air mass back trajectory calculations, the seasonal trends, physicochemical properties, and potential origins of pesticides were examined. Overall, this work highlights the power of liquid chromatography high-resolution mass spectrometry for identifying both known and unexpected pesticides in precipitation, allowing for more accurate modeling of the atmospheric transport and fate of these compounds.},
-annote = {This article presents a novel application of liquid chromatography high-resolution mass spectrometry for the detection of pesticides in wet deposition. The findings reveal significant insights into the atmospheric transport and deposition patterns of these contaminants, emphasizing the importance of monitoring pesticide levels in precipitation for environmental protection.}
+@article{Gray2022,
+  author  = {Gray, Rebekah and Painter, Eve and Sprankle, Jameson W. and Crawford, Alex D. and Morrison, Jillian J. and Frazier, Marian and Faust, Jennifer A.},
+  title   = {Suspect Screening for Pesticides in Rain and Snow Using Liquid Chromatography High-Resolution Mass Spectrometry},
+  journal = {Atmospheric Environment},
+  volume  = {291},
+  pages   = {119389},
+  year    = {2022},
+  doi     = {10.1016/j.atmosenv.2022.119389}
 }
 
-
-
-
-
-
+@article{Wang2016,
+  author  = {Wang, Mingxun and Carver, Jeremy J. and Phelan, Vanessa V. and Sanchez, Laura M. and Garg, Neha and others},
+  title   = {Sharing and Community Curation of Mass Spectrometry Data with Global Natural Products Social Molecular Networking},
+  journal = {Nature Biotechnology},
+  volume  = {34},
+  number  = {8},
+  pages   = {828--837},
+  year    = {2016},
+  doi     = {10.1038/nbt.3597}
+}
+@article{Fisher2022,
+  author = {Fisher, C.M., Peter, K.T., Newton, S.R. et al.},
+  title = {Approaches for assessing performance of high-resolution mass spectrometry–based non-targeted analysis methods},
+  journal = {Anal Bioanal Chem},
+  volume = {414},
+  pages = {6455-6471},
+  year = {2022},
+  doi = {https://doi.org/10.1007/s00216-022-04203-3},
+  URL = {https://doi.org/10.1007/s00216-022-04203-3},
+  annote = {This research paper provides a comprehensive overview of the current state and challenges associated with performance assessment of high-resolution mass spectrometry (HRMS)–based non-targeted analysis (NTA) methods, emphasizing the need for standardized metrics and frameworks. 
+  For my study on computational identification of unknown molecules via HRMS, particularly in analyzing organic contaminants in remote environments such as Mount Everest, Mt. Kilimanjaro, and Tibetan rivers, this paper offers valuable insights into the evaluation criteria and reliability of NTA workflows beyond simple structural assignment. 
+  It highlights the importance of robust performance metrics, which are critical when deploying computational approaches like molecular networking and cluster analysis to interpret complex environmental data. 
+  The focus on qualitative performance metrics such as confidence in chemical identification can guide my development of algorithms for spectral clustering and molecular network construction. 
+  These strategies will ensure meaningful differentiation of unknowns and proper assessment of confidence levels. Overall, the paper situates my computational methods within the broader context of NTA validity and underscores the necessity of standardized evaluation strategies. 
+  These strategies are especially relevant when working with large, diverse datasets collected from remote or extreme locations.}
+}
