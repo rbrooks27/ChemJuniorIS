@@ -1,5 +1,3 @@
-% This is a template for your written document.
-%
 % To compile using latexmk on the command line, run the following: 
 % latexmk -pdf outline.tex
 
@@ -18,17 +16,14 @@
 \usepackage{graphicx}
 \usepackage{float}
 
-% ---------- Math (optional but consistent) ----------
+% ---------- Math ----------
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{bm}
 
-% ---------- Hyperlinks ----------
-%\usepackage{hyperref}
-
-% ---------- ACS bibliography ----------
-\usepackage{achemso}
-\setkeys{acs}{articletitle=true}
+% ---------- ACS citations ----------
+% \usepackage{achemso}
+% \setkeys{acs}{articletitle=true}
 
 % ---------- Title ----------
 \title{\textbf{Computational Identification of Unknown Organic Contaminants and Molecules in Remote Environments via High-Resolution Mass Spectrometry}}
@@ -41,85 +36,140 @@
 
 \nocite{*}
 
+\begin{doublespace}
+
 \section{Goal}
-Identification of unknown compounds by High-Resolution Mass Spectrometry (HRMS) in water samples from snow (precipitate) in the Himalayas/Tibet, with a particular focus on the long-range atmospheric transport of these organic contaminants to these remote areas. 
-The identification will be made using computational tools and software, including molecular networking or cluster analysis.
+    Identification of unknown compounds by High-Resolution Mass Spectrometry (HRMS) in water samples from snow (precipitate) in the Himalayas/Tibet, with a particular focus on the long-range atmospheric transport of these organic contaminants to these remote areas. 
+    The identification will be made using computational tools and software, including molecular networking or cluster analysis.
 
-\section{Introduction to Environmental Chemistry and the Widespread Problem of Organic Contamination}
-\subsection{The Global Problem: Widespread Dispersion of Anthropogenic Chemicals}
-The continuous release of anthropogenic chemicals, including herbicides, pharmaceuticals, industrial compounds, and plasticizers, has led to their pervasive presence in remote environments.
-These contaminants, often originating from human activities, are spread globally. 
-Specific examples of concern include pesticides (e.g., atrazine, detected across sampling sites), industrial compounds, polycyclic aromatic hydrocarbons (PAHs) from fossil fuel combustion and vehicle traffic, and plasticizers like dimethyl phthalate.
-Anthropogenic markers such as vanillin also indicate human influence on remote environments.
-The widespread nature of these chemicals poses significant environmental and ecological risks, necessitating comprehensive monitoring and mitigation strategies.
+\section{Background and Significance}
+    \subsection{Environmental Contaminants}
+        The pervasive and escalating presence of anthropogenic chemicals in the environment represents a critical global challenge, necessitating sophisticated analytical approaches to comprehend their widespread dispersion and potential impacts.
+        Human activities, ranging from industrial processes and agriculture to daily consumer product use, continuously release a diverse array of chemicals into the environment.
+        These include herbicides (such as atrazine and hydroxyatrazine), pharmaceuticals, various industrial compounds, plasticizers (like dimethyl phthalate), insect repellants (like DEET), fungicides, and anthropogenic markers (e.g., vanillin, diethanolamine, caffeine, nicotine, coumarin, 5-methylbenzotriazole, quinoline, N-cyclohexylformamide)~\cite{Wenkai}.
+        Due to their persistence and mobility, these contaminants have now become ubiquitous, detected even in the planet's most remote ecosystems, including high-altitude regions like Mount Everest, Kilimanjaro, and the Qinghai-Tibetan Plateau (QTP)~\cite{Wenkai}.
 
-\subsection{Why Remote Peaks? Kilimanjaro and the Himalayas as "Cold Traps"}
-Remote high-altitude regions such as the Qinghai-Tibetan Plateau (QTP), Mount Everest, Yuzhu Mountain, Haba Mountain, and Kilimanjaro serve as crucial indicators of global pollution.
-These areas generally lack significant local industrial activity, meaning that any detected contaminants are strong evidence of long-range atmospheric transport.
-The cold temperatures characteristic of these mountain environments slow the degradation rates of persistent organic pollutants (POPs), allowing them to accumulate in these remote ecosystems.
-This "cold-trapping" effect concentrates contaminants, making these regions particularly vulnerable to persistent global pollution.
+        The global spread of these contaminants poses significant environmental and ecological risks. High-altitude environments are particularly vulnerable to this global pollution~\cite{Wenkai}. 
+        Snow, which constitutes a large proportion of precipitation in these regions, acts as an effective scavenger for particles and even gas-phase compounds, capturing airborne pollutants and facilitating their accumulation~\cite{Catalan}.
+        The cold temperatures characteristic of these high mountain regions significantly slow the degradation rates of persistent organic pollutants, leading to their prolonged preservation and accumulation, making these environments critical reservoirs for contaminants.
 
-\subsection{Study Goal: Using HRMS to Move Beyond "Target Lists" and Identify the "Known Unknowns" in the Environment}
-Traditional targeted analyses often focus on a predefined list of known contaminants. 
-However, this approach can miss a vast array of "known unknowns" and entirely unknown compounds present in environmental samples.
-This project aims to employ non-targeted analysis and suspect screening using HRMS to comprehensively identify organic contaminants in high-altitude snow and water samples. 
-This methodology allows for the detection and characterization of a broader spectrum of pollutants, thereby enriching the understanding of contaminant fate and transport.
+        Upon snowmelt, these contaminants can re-enter the environment, potentially far from their original emission sources, raising concerns about the long-term ecological impacts~\cite{Wenkai}.
+        While the direct interpretation that higher levels of a contaminant in snow will automatically translate to higher loads in lake sediments or soils is not always straightforward due to complex snowpack dynamics, the overall risk to the ecological health of high-altitude regions is significant~\cite{Catalan}.
+        The presence of agrochemicals, for instance, raises concerns about their long-term ecological impacts on remote ecosystems.
+        Furthermore, dust, which often transports trace metals and other contaminants from source areas, can play a key role in deposition, exerting buffering and fertilizing effects on mountain lakes that are typically acid-sensitive and oligotrophic~\cite{Catalan}.
 
-\section{Atmospheric Chemistry \& Transport Mechanisms}
-\subsection{Atmospheric Entry: Primary Sources and Chemical Makeup}
-Organic contaminants enter the atmosphere through various primary sources, including industrial volatility, agricultural pesticide drift, fossil fuel combustion, burning of biomass, and vehicle emissions.
-Once airborne, these compounds can undergo various chemical transformations and interactions within the troposphere, influencing their persistence, reactivity, and transport potential.
-\subsection{The Grasshopper Effect (Multi-Hop Transport)}
-The "grasshopper effect" describes the cyclical process of volatilization, atmospheric transport, condensation, and deposition of semi-volatile organic compounds (SVOCs) from warmer to colder regions.
-This mechanism explains the accumulation of POPs in high-latitude and high-altitude "cold traps".
-This iterative process allows contaminants to travel vast distances from their emission sources to remote environments.
-\subsection{Deposition Physics: Snow as an Efficient "Scrubber" of Organic Pollutants}
-Snowfall serves as a highly efficient mechanism for the atmospheric scavenging and deposition of organic pollutants.
-Compared to rain, snow is often considered a more effective "scrubber" of organic chemicals due to its larger surface area and the process of cold condensation.
-As snow melts, these accumulated contaminants are re-released into the environment, potentially impacting local hydrology and ecosystems.
-The study of snow samples provides a valuable proxy for atmospheric deposition, reflecting long-range transport patterns.
-\subsection{Regional Pathways: Indian Summer Monsoon and "Atmospheric Brown Clouds"}
-In regions like the Tibetan Plateau, specific meteorological phenomena play a critical role in contaminant transport. 
-The Indian Summer Monsoon (ISM) and "Atmospheric Brown Clouds" (ABCs), laden with pollutants from the densely populated Indo-Gangetic Plain, act as significant carriers of pollution. 
-These systems facilitate the upward and northward transport of a wide range of organic contaminants, depositing them onto the Himalayan and Tibetan ranges.
-Understanding these regional atmospheric pathways is essential for tracing the origins and predicting the deposition patterns of contaminants in these high-altitude ecosystems.
+        This proposed research aims to advance our understanding of this global problem by employing High-Resolution Mass Spectrometry (HRMS) for the identification of unknown compounds in water samples from snow in the Himalayas/Tibet.
+        The focus is on understanding the long-range atmospheric transport of these organic contaminants to these remote areas~\cite{Wenkai}.
+        The identification will be made using advanced computational tools, including molecular networking or cluster analysis, to move beyond traditional targeted approaches and uncover "known unknowns" and novel contaminants, providing critical baseline data for future environmental monitoring and robust contaminant management policies in these vulnerable regions.
+        Such comprehensive monitoring is essential to prevent the long-term degradation of these fragile environments~\cite{Wenkai}.
 
-\section{Analytical Methodology: The HRMS Workflow for Non-Target Identification}
-\subsection{How and why NTA is useful to environmental chemists}
-\begin{itemize}
-    \item Broader Exposure Characterization: NTA allows for the characterization of human exposures in various environmental media (air, water, dust, soil) and human samples, moving beyond the limited scope of traditionally assessed pollutants.
-    \item Identification of Emerging Contaminants: It helps identify potential chemical stressors, including transformation and degradation products, and prioritizes emerging contaminants for further safety assessment, crucial for understanding complex environmental chemistry.
-    \item Support for Rapid Response: NTA can be deployed for rapid response in environmental emergencies, such as wildfires or unintended chemical releases.
-    \item Comprehensive Environmental View: By not being limited to predefined target lists, NTA provides a more comprehensive understanding of environmental samples, leading to the discovery of previously unmonitored or unknown pollutants.
-\end{itemize}
-\subsection{Current challenges and limitations for NTA in environmental chemistry}
-\begin{itemize}
-    \item Lack of Standardization: Practices in hardware, software, databases, algorithms, and reporting strategies vary across institutions, laboratories, and investigators, hindering transparency and reproducibility, particularly for regulatory applications.
-    \item Data Processing and Interpretation: The high volume and complexity of HRMS data pose challenges in processing, annotating, and prioritizing chemical candidates, despite the development of tools like the US EPA’s INTERPRET NTA.
-    \item Identification Certainty: Assigning structures to detected features, especially novel or unknown ones, remains challenging, often leaving many unidentified features in datasets.
-    \item Database Limitations: The accuracy of suspect screening relies heavily on the comprehensiveness and quality of chemical suspect databases and experimental MS/MS libraries, with in silico analysis having its own limitations.
-    \item Chemical Space Coverage: While NTA expands the detectable chemical space, certain compound classes (e.g., very large molecules >1500 Da and metals) still require specialized analytical techniques beyond standard LC/GC-HRMS.
-\end{itemize}
-\subsection{Example studies from the literature that applied NTA to environmental samples}
-A study used LC-HRMS for suspect screening and NTA of fresh snowfall samples in the central United States. 
-It tentatively identified 91 compounds, confirming and semi-quantifying 17, mostly anthropogenic, including herbicides, insect repellents, and plasticizers. 
-Prominent compounds found in all samples included N-cyclohexylformamide (tire leachate contaminant), DEET (insect repellent), and dimethyl phthalate (plasticizer)
-\subsection{Detection Precision: Why HRMS (Orbitrap or Q-TOF) is Required}
-High-Resolution Mass Spectrometry (HRMS), specifically instruments like Orbitrap or Quadrupole Time-of-Flight (Q-TOF), is crucial for non-target analysis due to its ability to provide "Exact Mass" measurements with very low mass error (typically <5 ppm).
-This high precision allows for the accurate determination of elemental compositions, which is the first critical step in identifying unknown compounds, differentiating them from isobaric interferences, and enhancing the confidence in structural elucidation.
-\subsection{From Samples to Data: Solid-Phase Extraction (SPE)}
-After collection, melted snow and water samples must undergo preparation to concentrate trace organic contaminants. Solid-Phase Extraction (SPE) is a widely used and effective method for this purpose.
-SPE selectively extracts and concentrates organic compounds from large volumes of aqueous samples, enhancing their detectability by HRMS while removing interfering matrix components.
-\subsection{Computational Identification and Molecular Networking: Moving Beyond Libraries}
-This powerful bioinformatics approach groups unknown molecules by their structural similarity based on their MS/MS fragmentation patterns.
-Molecular networking helps visualize relationships between compounds, identify transformation products, and prioritize features for further investigation, even if they are not in existing spectral libraries.
-\subsection{In Silico Tools:}
- For molecules not found in any existing database, advanced in silico tools such as SIRIUS, MetFrag, and CSI:FingerID are indispensable.
- These tools predict molecular formulas and potential structures by analyzing exact mass, isotopic patterns, and fragmentation spectra, significantly aiding in the structural elucidation of truly unknown environmental contaminants.
+    \subsection{The Global Problem: Widespread Dispersion of Anthropogenic Chemicals}
+        The continuous release of chemicals from various human activities has resulted in their pervasive presence across the globe~\cite{Manz}.
+        Many of these substances, including persistent organic pollutants (POPs) and emerging contaminants, can travel vast distances from their sources, infiltrating even remote ecosystems~\cite{Wenkai}.
+        This extensive chemical footprint, comprising a diverse range of compounds, poses significant environmental and ecological risks.
+        Examples of such widespread contaminants include:
+        \begin{itemize}
+            \item \textbf{Per- and Polyfluoroalkyl Substances (PFAS): }{These industrial chemicals, known for their water and stain-repellent properties, are detected globally due to their exceptional persistence~\cite{Manz}}
+            \item \textbf{Pharmaceuticals: }{Frequently found in environmental waters, their presence highlights the reach of human waste streams~\cite{Manz}.}
+            \item \textbf{Pesticides and Herbicides: }{Arising primarily from agricultural applications, these are commonly detected in soil, sediment, air, and even remote snow and water samples~\cite{Manz}. Their long-range atmospheric transport and persistence are significant concerns~\cite{Wenkai}.}
+            \item \textbf{Polyaromatic Hydrocarbons (PAHs): }{Formed by the incomplete combustion of fossil fuels and biomass, PAHs are prevalent in soil, sediment, and air, with lighter compounds capable of long-distance transport~\cite{Manz}.}
+            \item \textbf{Plasticizers: }{Such as phthalates, are common in consumer products and dust, and have been identified in human samples, indicating widespread exposure~\cite{Manz}}
+        \end{itemize}
 
+    The presence of these and other halogenated compounds, often identified through non-targeted analysis (NTA), underscores the extensive chemical footprint of human activity~\cite{Manz}.
+    Even compounds like vanillin and caffeine serve as anthropogenic markers, signaling human influence on remote environments.
+    The potential for these chemicals to adversely influence health and ecosystems represents a major contributor to the "exposome," defined as the totality of environmental exposures an individual experiences over a lifetime~\cite{Manz}.
+
+    \subsection{Why Remote Peaks? Kilimanjaro and the Himalayas as "Cold Traps"}
+        Remote, high-altitude regions such as the Qinghai-Tibetan Plateau (QTP), Mount Everest, Yuzhu Mountain, Haba Mountain, and Kilimanjaro serve as crucial sentinels for assessing global pollution~\cite{Wenkai}.
+        These areas are typically characterized by a lack of significant local industrial activity, meaning that any contaminants detected are strong evidence of long-range atmospheric transport (LRAT)~\cite{Daly2005}.
+        LRAT mechanisms carry persistent organic pollutants (POPs) over extensive distances from their sources to remote high-altitude regions, including the Tibetan Plateau.
+
+        The unique environmental conditions in these mountain environments, particularly the consistently cold temperatures, play a critical role in the accumulation of POPs~\cite{Daly2005}.
+        This phenomenon is widely known as the "cold-trapping" effect. POPs, many of which are semi-volatile organic compounds (SVOCs), exhibit temperature-dependent partitioning between atmospheric gas and particle phases, and between the atmosphere and condensed phases like snow and ice~\cite{Daly2005}.
+        In warmer regions, these compounds tend to volatilize from surfaces into the atmosphere.
+        However, as air masses carrying these contaminants move towards colder, high-altitude or high-latitude regions, the lower temperatures cause these SVOCs to condense and deposit onto surfaces, where they become "trapped".
+        This "altitudinal fractionation" leads to the enrichment of more volatile constituents of SVOC mixtures at higher altitudes, mirroring the "global fractionation" observed along latitudinal transects~\cite{Daly2005}.
+
+        The cold conditions also significantly slow down the degradation rates of these pollutants, leading to their prolonged persistence and accumulation in these remote ecosystems~\cite{Daly2005}.
+        For instance, research suggests that the phase transition of water at the melting point, coupled with the major impact snow and ice have on contaminant behavior, can amplify the effects of climate change on organic contaminant fate in cold regions~\cite{Daly2005}.
+        This makes high-altitude ecosystems, such as alpine lakes, particularly sensitive to environmental changes.
+        Snow, which is often a more efficient scavenger of pollutants than rain, accounts for a significant portion of annual precipitation in regions like the Sierra Nevada, further enhancing deposition rates at high elevations~\cite{Daly2005}.
+        High precipitation rates, especially in the form of snow, along with low temperatures and high surface roughness, favor the deposition of SVOCs in mountains.
+        During daytime upslope winds, chemicals transported from lowlands to cooler, higher elevations where precipitation is more likely, experience enhanced deposition, contributing to a steady transfer of chemicals upslope~\cite{Daly2005}.
+        \begin{figure}[b] 
+            \centering
+            \includegraphics[scale=0.25]{imgs/Daly_SVOCs.png}
+            \caption{Air-surface exchange of semi-volatile organic contaminants (SVOCs) along a temperate mountain slope across different seasons.}
+            \label{fig:AirSurfaceExchange}
+        \end{figure}
+        Consequently, regions like the Himalayas and the QTP act as efficient reservoirs, concentrating contaminants that might otherwise be more dispersed or degraded in warmer climates~\cite{Daly2005}.
+        Studies have shown that polychlorinated biphenyls (PCBs) and organochlorine pesticides (OCPs), despite being banned or restricted, are frequently detected in high-altitude environments due to their persistence and LRAT capabilities, accumulating in air, snow, water, and soil in areas like the European Alps, Canadian Rockies, and parts of the Himalayas~\cite{Wenkai}.
+        The Canadian Rockies, for example, demonstrate that alpine systems function as reservoirs for these chemicals, with accumulation trends akin to those in polar regions.
+
+        Studying these areas provides invaluable insights into global atmospheric transport pathways and the ultimate fate of anthropogenic chemicals~\cite{Daly2005}.
+        While extensive research has focused on temperate mountain regions like the European Alps and Canadian Rockies, there remains a notable gap concerning organic contaminants in the Qinghai-Tibetan Plateau.
+        This region's distinct climate, extensive glacial coverage, and role as a vital water source for Asia make understanding pollutant distribution and behavior there particularly crucial for global assessments~\cite{Wenkai}.
+        The detection of diverse anthropogenic markers, from herbicides (e.g., atrazine) and pharmaceuticals to industrial compounds (e.g., PCBs, OCPs) and markers like vanillin, caffeine, and phthalates, in snow and water samples across remote peaks (e.g., Mount Everest, Kilimanjaro, Yuzhu Mountain, Haba Mountain) further emphasizes the global nature of pollution and the importance of these sites for monitoring~\cite{Wenkai}.
+        The concentration of certain persistent or semi-volatile organic compounds has been observed to be higher at higher altitudes, reinforcing the cold-trapping hypothesis.
+        Research also highlights the potential for emerging contaminants, including persistent and water-soluble substances emitted or formed in the atmosphere, to experience elevated deposition rates in mountains due to high precipitation and wash-out efficiency~\cite{Daly2005}.
+
+    \subsection{Atmospheric Chemistry \& Transport Mechanisms}
+    Organic contaminants enter the atmosphere from primary sources such as industrial processes (through chemical volatilization), agricultural activities (pesticide drift), and the combustion of fossil fuels and biomass, including vehicle emissions, which release polycyclic aromatic hydrocarbons (PAHs) and other volatile and semi-volatile organic compounds~\cite{Wenkai}.
+
+    Once airborne, these compounds undergo various chemical transformations and interactions within the troposphere, including photolysis, oxidation by hydroxyl radicals, and reactions with ozone. 
+    These processes influence their persistence, reactivity, and transport potential, sometimes leading to the formation of new, potentially more toxic, transformation products~\cite{Wenkai}.
+
+    The transport of these organic contaminants to remote high-altitude regions is largely governed by the "grasshopper effect," also known as multi-hop transport. 
+    This cyclical process involves the repeated volatilization, atmospheric transport, condensation, and deposition of semi-volatile organic compounds (SVOCs).
+    In warmer source regions, SVOCs volatilize into the atmosphere, are carried by air currents to colder regions, condense, and deposit onto surfaces.
+    As temperatures rise, some may re-volatilize, continuing their journey. This iterative process allows contaminants to travel vast distances, eventually accumulating in high-latitude and high-altitude "cold traps" like the Himalayas.
+
+    The efficiency of this process is influenced by the physicochemical properties of the compounds (e.g., vapor pressure, Henry's Law constant) and environmental factors such as temperature, wind patterns, and precipitation~\cite{Wenkai}.
+    Mountains act as steep environmental gradients, and studying how chemicals behave along altitudinal gradients helps understand the influence of climate and vegetation on chemical behavior~\cite{Daly2005}.
+
+    Specific Mechanisms in Mountainous Regions:
+        \begin{itemize}
+            \item \text{Mountain Winds: }{Diurnal mountain winds, produced by temperature contrasts, carry air into the mountains at low levels during the daytime and out at night. This can lead to a net transfer of chemicals up-slope, as warmer daytime temperatures in lowlands favor evaporation and up-slope transport, while colder nighttime temperatures prevent re-evaporation during down-slope winds~\cite{Daly2005}. Large-scale winds modified by mountain ranges also play a role~\cite{Daly2005}.}
+            \item \text{Air-Surface Exchange: }{Deposition of SVOCs is favored by low temperatures, high precipitation rates, and high surface roughness, while evaporation is favored by high temperatures and low surface capacity for the contaminant. High elevations often experience forced rising motions that cool the air, enhancing cloud and precipitation formation, thus increasing deposition rates~\cite{Daly2005}.}
+            \item \text{Precipitation Scavenging: }{Snow is a particularly efficient mechanism for the atmospheric scavenging and deposition of organic pollutants, often more so than rain, due to its larger surface area and complex crystal structure, which captures both gas-phase and particle-bound contaminants. This is considered a dominant orographic trapping mechanism for some SVOCs. During snowmelt, accumulated pollutants can be released, often in a concentrated pulse, into meltwater streams and alpine lakes~\cite{Daly2005,Wenkai}.}
+            \item \text{Cold Trapping and Fractionation: }{The strong temperature gradients with elevation, combined with temperature-driven exchange, result in a net transfer of chemicals from lowlands to higher altitudes. More volatile constituents of SVOC mixtures tend to become enriched at higher altitudes ("altitudinal fractionation"). This effect is enhanced on a regional scale due to shorter travel distances for large temperature differences and specific diurnal wind systems. Lower degradation potential at high altitudes also contributes to accumulation~\cite{Daly2005}.}
+            \item \text{Dust Transport: }{In mountain lakes near dust source areas or areas affected by distant dust-laden air masses, dust transport and deposition become key factors for contaminant deposition. Trace metals are commonly associated with dust, and other contaminants can also be related when sources are nearby~\cite{Catalan}.}
+            \item \text{Long-Range Transport Potential: }{Mountain regions, being often closer to emission sources than polar regions, can receive chemicals even if they have a relatively low long-range transport potential~\cite{Daly2005}.}
+        \end{itemize}
+    
+    High mountain regions, including the European Alps, Canadian Rockies, and parts of the Himalayas, are particularly vulnerable to long-range atmospheric transport due to their unique topographic and climatic conditions that facilitate the capture and retention of airborne contaminants~\cite{Wenkai}.
+    While some studies suggest lower surface snow concentrations at very high altitudes, overall, contaminant concentrations can increase with altitude due to these atmospheric transport and deposition factors.
+
+    Understanding these dynamics, especially in regions like the Tibetan Plateau, is critical for global assessments of pollutant distribution and transport mechanisms~\cite{Wenkai}.
+
+    \subsection{Study Goal: Using HRMS to Move Beyond "Target Lists" and Identify the "Known Unknowns" in the Environment}
+        Traditionally, the assessment of environmental contamination has relied heavily on targeted analyses. These methods focus on a predefined list of known contaminants for which specific analytical standards and methodologies have been developed~\cite{Chao2025,Manz}.
+        While effective for monitoring well-established pollutants, this approach inherently limits the scope of discovery, potentially missing a vast array of "known unknowns" compounds whose existence is suspected but not specifically monitored and entirely unknown compounds present in environmental samples.
+        The sheer diversity of chemicals, with over 100,000 substances registered for commercial use globally, renders comprehensive targeted analysis impractical.
+        This limitation creates critical data gaps, particularly in understanding the full chemical exposome and prioritizing emerging contaminants for safety assessment.
+        To overcome these limitations, this project aims to employ non-targeted analysis (NTA) and suspect screening analysis (SSA) using High-Resolution Mass Spectrometry (HRMS).
+        NTA is a discovery-based approach that detects organic chemicals without requiring a priori knowledge of the species present in the sample.
+        SSA, a subcategory of NTA, involves comparing molecular features identified by HRMS against databases of chemical suspects to identify potential matches.
+        In contrast, true NTA postulates unknown compounds without relying on suspect lists, thereby enabling the discovery of novel compounds.
+        HRMS, often coupled with liquid chromatography (LC) or gas chromatography (GC), provides the high mass accuracy and resolution necessary to detect and identify a broad spectrum of compounds, including those at trace levels, with high confidence~\cite{Fisher2022}.
+        This methodology allows for the comprehensive identification and characterization of a broader spectrum of pollutants in high-altitude snow and water samples, moving beyond the limited scope of traditional targeted methods.
+        NTA and SSA have proven powerful in various environmental media and human samples, enabling the detection of thousands of chemicals and their transformation products across different matrices~\cite{Manz}.
+        For instance, NTA has identified PFAS, pharmaceuticals, pesticides, and plasticizers in water samples, and a range of chemicals including pesticides, PAHs, and flame retardants in soil and sediment.The application of HRMS-based NTA in this study will significantly enrich our understanding of contaminant fate and transport, particularly in sensitive mountain environments, by revealing the full chemical profiles that might otherwise remain undiscovered.
+        This approach is crucial for identifying novel or unexpected contaminants, retrospectively assessing past exposures, and efficiently classifying samples based on data patterns, thereby filling critical data gaps not easily addressed by targeted analyses.
+
+%\begin{figure}[H] % Suggests figure placement (here, top, bottom)
+%    \centering
+%    \includegraphics[scale=0.50]{SMILEStoMolecule.png}
+%    \caption{Visuals of SMILES notation to actual molecules}
+%    \label{fig:SMILEStomolecule} % Unique label for referencing
+%\end{figure}
+
+\end{doublespace}
 
 % ---------- References ----------
-\bibliographystyle{plain-annote}
-\bibliography{bibliography}
+\newpage
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
 
 \end{document}
