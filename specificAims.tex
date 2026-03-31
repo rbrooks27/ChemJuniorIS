@@ -1,0 +1,82 @@
+% To compile using latexmk on the command line, run the following: 
+% latexmk -pdf specificAims.tex
+
+\documentclass[11pt]{article}
+
+% ---------- Page formatting ----------
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- Graphics ----------
+\usepackage{graphicx}
+\usepackage{float}
+
+% ---------- Math ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% ---------- ACS citations ----------
+% \usepackage{achemso}
+% \setkeys{acs}{articletitle=true}
+
+% ---------- Title ----------
+\title{\textbf{Computational Identification of Unknown Organic Contaminants and Molecules in Remote Environments via High-Resolution Mass Spectrometry}}
+\author{Raelyn Brooks}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\nocite{*}
+
+\begin{doublespace}
+
+\section{Goal}
+    This project aims to characterize the chemical footprint of global pollution in remote high-altitude environments by identifying unknown organic contaminants in snowmelt and river water using high-resolution mass spectrometry (HRMS).
+    I hypothesize that long-range atmospheric transport leads to the accumulation of diverse and previously uncharacterized organic molecules in these regions.
+    By combining non-targeted analysis with molecular networking, this study will reveal both the identity and distribution patterns of these contaminants.
+
+\section{Specific Aims}
+    \subsection{Aim 1: Identify and characterize unknown organic contaminants in high-altitude water samples}
+        \begin{itemize}
+            \item {\textbf{What (Aim):}} Use HRMS-based non-targeted analysis to detect and identify unknown organic molecules in snowmelt and river water collected from high-alpine regions.
+            \item {\textbf{How (Approach):}} Water samples will be analyzed using liquid chromatography–HRMS, followed by computational workflows including molecular networking and suspect screening to annotate molecular features and cluster related compounds.
+            \item {\textbf{Impact:}} This aim will generate a comprehensive chemical profile of contaminants in remote environments, moving beyond traditional targeted methods and uncovering “known unknowns” and novel compounds.
+        \end{itemize}
+
+    \subsection{Aim 2: Quantify spatial patterns and concentration gradients of detected contaminants}
+        \begin{itemize}
+            \item {\textbf{What (Aim):}} Determine the concentration and distribution of identified compounds across different sampling sites and environmental matrices.
+            \item {\textbf{How (Approach):}} Relative or semi-quantitative analysis will be performed using HRMS signal intensities, with comparisons across locations.
+            \item {\textbf{Impact:}} This aim will establish how contaminant levels vary geographically, providing insight into deposition patterns and environmental accumulation in high-altitude systems.
+        \end{itemize}
+
+    \subsection{Aim 3: Assess long-range atmospheric transport of contaminants}
+        \begin{itemize}
+            \item {\textbf{What (Aim):}} Evaluate the relationship between detected contaminants and atmospheric transport processes to determine how far pollutants travel from their sources.
+            \item {\textbf{How (Approach):}} Chemical profiles will be compared with known atmospheric markers and literature data; patterns in molecular classes and volatility will be used to infer transport mechanisms (e.g., long-range atmospheric transport and cold trapping).
+            \item {\textbf{Impact:}} This aim will link chemical presence to global transport pathways, improving understanding of how human-generated pollutants reach remote ecosystems.
+        \end{itemize}
+
+%\begin{figure}[H] % Suggests figure placement (here, top, bottom)
+%    \centering
+%    \includegraphics[scale=0.50]{SMILEStoMolecule.png}
+%    \caption{Visuals of SMILES notation to actual molecules}
+%    \label{fig:SMILEStomolecule} % Unique label for referencing
+%\end{figure}
+
+\end{doublespace}
+
+% ---------- References ----------
+\newpage
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
+
+\end{document}
