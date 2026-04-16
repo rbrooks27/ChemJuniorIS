@@ -1,0 +1,95 @@
+% To compile using latexmk on the command line, run the following: 
+% latexmk -pdf methods.tex
+
+\documentclass[11pt]{article}
+
+% ---------- Page formatting ----------
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- Graphics ----------
+\usepackage{graphicx}
+\usepackage{float}
+
+% ---------- Math ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+% ---------- ACS citations ----------
+% \usepackage{achemso}
+% \setkeys{acs}{articletitle=true}
+
+% ---------- Title ----------
+\title{\textbf{Computational Identification of Unknown Organic Contaminants and Molecules in Remote Environments via Molecular Networking}}
+\author{Raelyn Brooks}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\nocite{*}
+
+\begin{doublespace}
+
+\section{Goal}
+    This project aims to characterize surface water samples from remote high-altitude environments by identifying both known and unknown organic contaminants using high-resolution mass spectrometry (HRMS).
+    While database-driven approaches with lists of known contaminants enable identification of some contaminants, I hypothesize that a significant fraction of uncharacterized molecules can be identified through non-targeted analysis, particularly molecular networking.
+    Together, these approaches will reveal the identity and patterns of contaminants in these remote regions.
+
+\section{Methods}
+    \subsection{Sample Collection and Preparation}
+        Surface water samples collected from remote high-altitude environments—including Mt. Everest, Mt. Kilimanjaro, the Tibetan Plateau, and Qinghai Lake—will be analyzed for organic contaminants. 
+        These samples represent integrated records of atmospheric deposition.
+        Prior to analysis, samples will be filtered to remove particulate matter and stored under controlled conditions to minimize degradation or contamination. 
+        Solid-phase extraction (SPE) will be used to concentrate dissolved organic compounds and improve detection sensitivity for trace-level contaminants. 
+        Extracted samples will then be reconstituted in an appropriate solvent compatible with liquid chromatography–mass spectrometry (LC-HRMS) analysis.
+
+    \subsection{High-Resolution Mass Spectrometry Data Acquisition}
+        All samples will be analyzed using liquid chromatography coupled with high-resolution mass spectrometry (LC-HRMS). 
+        An iterative data-dependent acquisition (DDA) approach will be employed, in which each sample is injected and analyzed multiple times.
+        In each successive run, previously fragmented precursor ions will be excluded using dynamic exclusion lists, allowing for increased fragmentation coverage of lower-abundance compounds. 
+        This iterative DDA strategy improves the detection of unique spectral features and enhances MS/MS coverage across complex environmental samples.
+        Mass spectra will be collected in both MS1 (full scan) and MS/MS modes to obtain accurate mass measurements and fragmentation patterns necessary for compound identification.
+
+    \subsection{Data Processing and Feature Detection}
+    Raw LC-HRMS data will be processed using software such as MS-DIAL. 
+    Data processing steps will include peak detection, deconvolution, alignment across samples, and normalization.
+    Detected features will be characterized by their mass-to-charge ratio (m/z), retention time, and MS/MS fragmentation spectra. 
+    Feature tables will be generated to represent the full set of detected compounds across all samples.
+    Quality control steps, including blank subtraction and filtering of low-confidence features, will be applied to remove background contaminants and noise.
+
+    \subsection{Suspect Screening for Known Contaminants}
+        To identify known environmental contaminants, suspect screening will be performed using curated chemical databases, such as the Agilent environmental contaminant database.
+        Detected features will be matched against database entries using accurate mass measurements and MS/MS spectral similarity. 
+        Candidate identifications will be assigned based on established confidence levels (e.g., Schymanski levels), incorporating mass accuracy, isotopic patterns, and fragmentation matching.
+        This approach will enable the annotation of known compounds such as pharmaceuticals, pesticides, and industrial chemicals, providing a baseline characterization of anthropogenic contamination in the samples.
+
+    \subsection{Molecular Networking and Non-Targeted Analysis}
+        To characterize unknown compounds not identified through suspect screening, molecular networking will be performed using MS/MS spectral similarity.
+        Spectral data will be uploaded to platforms such as GNPS (Global Natural Products Social Molecular Networking), where pairwise spectral comparisons will be used to construct molecular networks. 
+        In these networks, nodes represent individual compounds, and edges represent spectral similarity relationships.
+        Clusters of related compounds will be analyzed to identify structural relationships between known and unknown molecules. 
+        Unknown compounds that cluster with annotated compounds can be tentatively characterized based on shared fragmentation patterns and mass differences.
+        Additional annotation tools (e.g., MolNetEnhancer) may be used to integrate chemical class information and improve structural interpretation.
+
+    \subsection{Structural Interpretation and Data Analysis}
+        Mass differences between related compounds in molecular networks will be examined to infer potential chemical transformations (e.g., oxidation, methylation, or degradation products). 
+        Fragmentation patterns will be interpreted to propose tentative structures for unknown compounds.
+        Comparative analysis across sampling locations will be conducted to identify trends in contaminant distribution and to assess the influence of long-range atmospheric transport. 
+        Differences in compound profiles may reveal region-specific contamination patterns or shared global sources.
+
+\end{doublespace}
+
+% ---------- References ----------
+\newpage
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
+
+\end{document}
