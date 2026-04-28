@@ -44,46 +44,92 @@
     Together, these approaches will reveal the identity and patterns of contaminants in these remote regions.
 
 \section{Methods}
-    \subsection{Sample Collection and Preparation}
-        Surface water samples collected from remote high-altitude environments—including Mt. Everest, Mt. Kilimanjaro, the Tibetan Plateau, and Qinghai Lake—will be analyzed for organic contaminants. 
-        These samples represent integrated records of atmospheric deposition.
-        Prior to analysis, samples will be filtered to remove particulate matter and stored under controlled conditions to minimize degradation or contamination. 
-        Solid-phase extraction (SPE) will be used to concentrate dissolved organic compounds and improve detection sensitivity for trace-level contaminants. 
-        Extracted samples will then be reconstituted in an appropriate solvent compatible with liquid chromatography–mass spectrometry (LC-HRMS) analysis.
 
     \subsection{High-Resolution Mass Spectrometry Data Acquisition}
-        All samples will be analyzed using liquid chromatography coupled with high-resolution mass spectrometry (LC-HRMS). 
-        An iterative data-dependent acquisition (DDA) approach will be employed, in which each sample is injected and analyzed multiple times.
-        In each successive run, previously fragmented precursor ions will be excluded using dynamic exclusion lists, allowing for increased fragmentation coverage of lower-abundance compounds. 
-        This iterative DDA strategy improves the detection of unique spectral features and enhances MS/MS coverage across complex environmental samples.
-        Mass spectra will be collected in both MS1 (full scan) and MS/MS modes to obtain accurate mass measurements and fragmentation patterns necessary for compound identification.
+        All samples will be analyzed using liquid chromatography coupled with high-resolution mass spectrometry (LC-HRMS).
+        Separation will be performed using a C18 reverse-phase column, allowing for the retention and separation of semi-polar to nonpolar organic compounds commonly found in environmental samples.
+        
+        Data will be acquired in both positive and negative electrospray ionization (ESI) modes to maximize compound coverage.
+        For positive ionization mode, the mobile phase will consist of 0.1\% formic acid in water (aqueous phase) and methanol with 0.1\% formic acid (organic phase).
+        For negative ionization mode, the mobile phase will consist of 10 mM ammonium acetate in water (aqueous phase) and 10 mM ammonium acetate in methanol (organic phase).
+        Gradient elution will be used in both modes to effectively separate compounds across a range of polarities.
+
+        The analytical workflow will begin with MS1 full-scan acquisition to detect all ionizable features present in the samples. From these data, exclusion and inclusion lists will be generated.
+        The exclusion list will contain background contaminants and redundant high-abundance ions to prevent repeated fragmentation, while the inclusion list will prioritize features of interest, particularly those matching entries in existing chemical database.
+
+        Subsequent analyses will employ MS/MS acquisition using an iterative data-dependent acquisition (DDA) strategy.
+        In DDA, precursor ions are selected in real time based on their intensity for fragmentation. In the iterative approach used here, multiple injections of the same sample are performed, and previously fragmented ions are excluded in successive runs.
+        This allows for deeper sampling of the chemical space by enabling fragmentation of lower-abundance features that would otherwise be missed.
+        As a result, iterative DDA significantly increases MS/MS coverage and improves the likelihood of identifying both known and unknown compounds in complex environmental mixtures.
+
+        \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.40]{ExclusionList.png}
+            \caption{Example of exclusion list workflow~\cite{Koelmel2017}}
+            \label{fig:ExclusionList} % Unique label for referencing
+        \end{figure}
 
     \subsection{Data Processing and Feature Detection}
-    Raw LC-HRMS data will be processed using software such as MS-DIAL. 
-    Data processing steps will include peak detection, deconvolution, alignment across samples, and normalization.
-    Detected features will be characterized by their mass-to-charge ratio (m/z), retention time, and MS/MS fragmentation spectra. 
-    Feature tables will be generated to represent the full set of detected compounds across all samples.
-    Quality control steps, including blank subtraction and filtering of low-confidence features, will be applied to remove background contaminants and noise.
+        Raw LC-HRMS data will be processed using software such as MS-DIAL. Data processing will include peak detection, alignment across samples, and feature annotation.
+
+        Detected signals will initially be treated as features, defined by their mass-to-charge ratio (m/z), retention time, and associated MS/MS spectra.
+        A feature is only considered a confirmed compound once sufficient evidence supports its identification.
+
+        Quality control steps, including blank subtraction and filtering of low-confidence signals, will be applied to remove background contaminants and noise.
+        The resulting feature table will represent the set of detected molecular features across all samples and will serve as the basis for downstream identification and analysis.
 
     \subsection{Suspect Screening for Known Contaminants}
-        To identify known environmental contaminants, suspect screening will be performed using curated chemical databases, such as the Agilent environmental contaminant database.
-        Detected features will be matched against database entries using accurate mass measurements and MS/MS spectral similarity. 
-        Candidate identifications will be assigned based on established confidence levels (e.g., Schymanski levels), incorporating mass accuracy, isotopic patterns, and fragmentation matching.
-        This approach will enable the annotation of known compounds such as pharmaceuticals, pesticides, and industrial chemicals, providing a baseline characterization of anthropogenic contamination in the samples.
+        To identify contaminants of environmental concern (CECs), suspect screening will be performed using curated chemical databases, such as the Agilent environmental contaminant database.
+
+        Features will be matched to database entries using a combination of accurate mass, MS/MS spectral similarity, isotopic pattern, and retention time.
+        Retention time provides an additional orthogonal parameter that improves confidence in matching beyond mass and fragmentation data alone.
+
+        Rather than assigning definitive identifications, candidate annotations will be evaluated based on their level of confidence using the Schymanski framework.
+        These levels reflect how well a feature matches known reference data, ranging from tentative identifications (based on mass and fragmentation patterns) to confirmed identifications requiring comparison to authentic reference standards.
+
+        This approach enables identification of known contaminants while also highlighting gaps in existing chemical database, where detected features cannot be confidently matched to known compounds.
 
     \subsection{Molecular Networking and Non-Targeted Analysis}
-        To characterize unknown compounds not identified through suspect screening, molecular networking will be performed using MS/MS spectral similarity.
-        Spectral data will be uploaded to platforms such as GNPS (Global Natural Products Social Molecular Networking), where pairwise spectral comparisons will be used to construct molecular networks. 
-        In these networks, nodes represent individual compounds, and edges represent spectral similarity relationships.
-        Clusters of related compounds will be analyzed to identify structural relationships between known and unknown molecules. 
-        Unknown compounds that cluster with annotated compounds can be tentatively characterized based on shared fragmentation patterns and mass differences.
-        Additional annotation tools (e.g., MolNetEnhancer) may be used to integrate chemical class information and improve structural interpretation.
+        To extend beyond database-driven identification, molecular networking will be performed to characterize unknown features not identified through suspect screening.
+        Instead of using existing platforms, a custom computational workflow will be developed to compare MS/MS spectra and identify relationships between structurally similar molecules.
+
+        Spectral similarity between features will be quantified using cosine similarity scoring. In this approach, each MS/MS spectrum is represented as a vector, where fragment ions (m/z values) are paired with their corresponding intensities.
+        Before comparison, spectra are typically filtered and aligned so that only matching or near-matching fragment ions are considered.
+        The cosine similarity score between two spectra is calculated as:
+
+        \[
+        \text{Cosine Similarity} = \frac{\sum (A_i \cdot B_i)}{\sqrt{\sum (A_i^2)} \cdot \sqrt{\sum (B_i^2)}}
+        \] 
+
+        where \(A_i\) and \(B_i\) represent the intensities of corresponding fragment ions in the two spectra.
+        This calculation effectively measures the cosine of the angle between the two spectral vectors in multidimensional space.
+
+        A score close to 1 indicates that two spectra have very similar fragmentation patterns, suggesting structural similarity between the corresponding molecules.
+        Lower scores indicate less similarity and weaker structural relationships.
+
+        Importantly, cosine similarity accounts for both the presence of shared fragment ions and their relative intensities, making it more robust than simple peak matching.
+        Additional considerations, such as allowing small mass tolerances between fragment ions and weighting higher-intensity peaks, can further improve the accuracy of similarity scoring.
+
+        Using this approach, groups of features with high spectral similarity will be identified and interpreted as structurally related compounds.
+        Features that are closely related to annotated compounds can be used to infer the identity or chemical class of unknowns, enabling extension beyond existing chemical databases.
 
     \subsection{Structural Interpretation and Data Analysis}
-        Mass differences between related compounds in molecular networks will be examined to infer potential chemical transformations (e.g., oxidation, methylation, or degradation products). 
-        Fragmentation patterns will be interpreted to propose tentative structures for unknown compounds.
-        Comparative analysis across sampling locations will be conducted to identify trends in contaminant distribution and to assess the influence of long-range atmospheric transport. 
-        Differences in compound profiles may reveal region-specific contamination patterns or shared global sources.
+        Structural interpretation will focus on analyzing mass differences and fragmentation patterns within molecular networks to propose tentative structures for unknown compounds.
+
+        Mass shifts between related features will be used to infer potential chemical transformations. For example:
+
+        \begin{itemize}
+            \item A mass increase of +16 Da may indicate the addition of an oxygen atom (e.g., hydroxylation).
+            \item A mass shift of +14 Da may suggest methylation.
+            \item A mass change of +16 Da combined with loss of 2 hydrogen atoms may indicate the formation of a carbonyl group.
+        \end{itemize}
+
+        Fragmentation patterns will be further analyzed to support these structural hypotheses.
+        Through this approach, unknown features can be contextualized relative to known compounds, enabling extension beyond existing chemical libraries.
+
+        This combined workflow supports (1) comprehensive MS/MS data acquisition, (2) identification of known contaminants using existing databases, and (3) extension of chemical identification through molecular networking, directly aligning with the three specific aims of this study.
+
+
 
 \end{doublespace}
 
