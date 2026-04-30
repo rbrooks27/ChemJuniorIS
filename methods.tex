@@ -43,6 +43,13 @@
     While database-driven approaches with lists of known contaminants enable identification of some contaminants, I hypothesize that a significant fraction of uncharacterized molecules can be identified through non-targeted analysis, particularly molecular networking.
     Together, these approaches will reveal the identity and patterns of contaminants in these remote regions.
 
+    \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=1.00]{imgs/NTAvsTA.jpg}
+            \caption{Comparison of non-targeted analysis (NTA) and targeted analysis (TA) approaches for identification of organic contaminants~\cite{Schulze2020}.}
+            \label{fig:NTA vs TA} % Unique label for referencing
+        \end{figure}
+
 \section{Methods}
 
     \subsection{High-Resolution Mass Spectrometry Data Acquisition}
@@ -64,8 +71,8 @@
 
         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
             \centering
-            \includegraphics[scale=0.40]{ExclusionList.png}
-            \caption{Example of exclusion list workflow~\cite{Koelmel2017}}
+            \includegraphics[scale=0.45]{imgs/ExclusionList.png}
+            \caption{Example of exclusion and inclusion of features to establish our lists.~\cite{Koelmel2017}}
             \label{fig:ExclusionList} % Unique label for referencing
         \end{figure}
 
@@ -78,16 +85,36 @@
         Quality control steps, including blank subtraction and filtering of low-confidence signals, will be applied to remove background contaminants and noise.
         The resulting feature table will represent the set of detected molecular features across all samples and will serve as the basis for downstream identification and analysis.
 
+        \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.45]{imgs/workflowMSDial.png}
+            \caption{This workflow illustrates data independent acquisition (DIA) using MS Dial while different from our data dependent acquisition (DDA) we are seeking the flow will be very similar.~\cite{Tsgawa2015}}
+            \label{fig:MSDial Workflow} % Unique label for referencing
+        \end{figure}
+
     \subsection{Suspect Screening for Known Contaminants}
         To identify contaminants of environmental concern (CECs), suspect screening will be performed using curated chemical databases, such as the Agilent environmental contaminant database.
 
         Features will be matched to database entries using a combination of accurate mass, MS/MS spectral similarity, isotopic pattern, and retention time.
         Retention time provides an additional orthogonal parameter that improves confidence in matching beyond mass and fragmentation data alone.
-
-        Rather than assigning definitive identifications, candidate annotations will be evaluated based on their level of confidence using the Schymanski framework.
+        
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.75]{imgs/Kind.png}
+            \caption{This figure illustrates the MS/MS database creation and how LCMS is used to identify compounds based on their fragmentation patterns~\cite{Kind2018}.}
+            \label{fig: MS/MS} % Unique label for referencing
+        \end{figure}
+        Rather than assigning definitive identifications, candidate annotations will be evaluated based on their level of confidence using the Schymanski framework as seen in Figure 3~\cite{Schymanski2014}.
         These levels reflect how well a feature matches known reference data, ranging from tentative identifications (based on mass and fragmentation patterns) to confirmed identifications requiring comparison to authentic reference standards.
 
         This approach enables identification of known contaminants while also highlighting gaps in existing chemical database, where detected features cannot be confidently matched to known compounds.
+
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.30]{imgs/CILevels.png}
+            \caption{Confidence levels example for molecular feature identification based on the Schymanski framework.~\cite{Schymanski2014}}
+            \label{fig:Schymanski Levels} % Unique label for referencing
+        \end{figure}
 
     \subsection{Molecular Networking and Non-Targeted Analysis}
         To extend beyond database-driven identification, molecular networking will be performed to characterize unknown features not identified through suspect screening.
@@ -113,6 +140,13 @@
         Using this approach, groups of features with high spectral similarity will be identified and interpreted as structurally related compounds.
         Features that are closely related to annotated compounds can be used to infer the identity or chemical class of unknowns, enabling extension beyond existing chemical databases.
 
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.30]{imgs/GNPS.png}
+            \caption{This example of Global Natural Product Social (GNPS) molecular networking illustrates the relationships between different molecular features but this is not fitted for environmental samples which causes gaps~\cite{Schmid2021}.}
+            \label{fig:GNPS} % Unique label for referencing
+        \end{figure}
+
     \subsection{Structural Interpretation and Data Analysis}
         Structural interpretation will focus on analyzing mass differences and fragmentation patterns within molecular networks to propose tentative structures for unknown compounds.
 
@@ -129,6 +163,13 @@
 
         This combined workflow supports (1) comprehensive MS/MS data acquisition, (2) identification of known contaminants using existing databases, and (3) extension of chemical identification through molecular networking, directly aligning with the three specific aims of this study.
 
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.30]{imgs/IonMW.png}
+            \caption{This diagram illustrates how a molecular network can be constructed from MS/MS data, enabling the identification of unknown compounds based on their fragmentation patterns while this is ion identity molecular networking a similar graph will be constructed~\cite{Schmid2021}.}
+            \label{fig: Ion Identity Molecular Networking} % Unique label for referencing
+        \end{figure}
+
 
 
 \end{doublespace}
@@ -136,6 +177,6 @@
 % ---------- References ----------
 \newpage
 \bibliographystyle{plain}
-\bibliography{bibliography.bib}
+\bibliography{bibliography}
 
 \end{document}
