@@ -64,7 +64,7 @@
 
         The analytical workflow will begin with MS1 full-scan acquisition to detect all ionizable features present in the samples. 
         From these data, exclusion and inclusion lists will be generated (Figure~\ref{fig:ExclusionList}).
-        The exclusion list will contain background contaminants high-abundance ions that do not require repeated fragmentation, while the inclusion list will prioritize features of interest, particularly those matching entries in existing chemical databases.
+        The exclusion list will contain background contaminants high-abundance ions that do not require repeated fragmentation, while the inclusion list will prioritize features of interest, particularly those matching entries in existing chemical databases~\cite{Koelmel2017}.
 
         Subsequent analyses will employ MS/MS acquisition using an iterative data-dependent acquisition (DDA) strategy.
         In DDA, precursor ions are selected in real time based on their intensity for fragmentation. 
@@ -86,7 +86,7 @@
 
         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
             \centering
-            \includegraphics[scale=0.45]{imgs/workflowMSDial.png}
+            \includegraphics[scale=0.40]{imgs/workflowMSDial.png}
             \caption{This workflow illustrates data independent acquisition (DIA) using MS Dial while different from our data dependent acquisition (DDA) we are seeking something similar.~\cite{Tsugawa2015}}
             \label{fig:MSDial Workflow} % Unique label for referencing
         \end{figure}
@@ -94,14 +94,14 @@
         Detected signals will initially be treated as features, defined by their mass-to-charge ratio (m/z), retention time, and associated MS/MS spectra.
         A feature is only considered a confirmed compound once sufficient evidence supports its identification.
 
-        Quality control steps, including blank subtraction and filtering of low-confidence signals, will be applied to remove background contaminants.
+        Quality control steps, including blank subtraction and filtering of low-confidence signals, will be applied to remove background contaminants~\cite{Schulze2020}.
         The resulting feature table will represent the set of detected molecular features across all samples and will serve as the basis for downstream identification and analysis.
 
     \subsection{Suspect Screening for Known Contaminants}
         To identify contaminants of emerging concern (CECs), suspect screening will be performed using curated chemical databases, such as the Agilent environmental contaminant database.
         Figure 4 illustrates how MS/MS spectral databases are constructed and used in conjunction with LC-HRMS data to identify compounds based on fragmentation patterns.
 
-        Features will be matched to database entries using a combination of accurate mass, MS/MS spectral similarity, isotopic pattern, and retention time. 
+        Features will be matched to database entries using a combination of accurate mass, MS/MS spectral similarity, isotopic pattern, and retention time~\cite{Kind2018}. 
         Retention time serves as an important orthogonal parameter that strengthens confidence in candidate matches.
         
          \begin{figure}[H] % Suggests figure placement (here, top, bottom)
@@ -112,7 +112,7 @@
         \end{figure}
         Candidate annotations will be evaluated using the Schymanski framework, which classifies identification confidence into levels based on available evidence (Figure 5)~\cite{Schymanski2014}.
         These levels reflect the degree of confidence in a proposed identification rather than representing definitive assignments. 
-        This approach enables identification of known contaminants while simultaneously highlighting gaps in existing chemical databases where features cannot be confidently matched.
+        This approach enables identification of known contaminants while simultaneously highlighting gaps in existing chemical databases where features cannot be confidently matched~\cite{Manz}.
 
          \begin{figure}[H] % Suggests figure placement (here, top, bottom)
             \centering
@@ -123,13 +123,13 @@
 
     \subsection{Molecular Networking and Non-Targeted Analysis}
         To extend beyond database-driven identification, molecular networking will be used to characterize unknown features not identified through suspect screening.
-        Molecular networking is a computational approach that groups compounds based on similarities in their MS/MS fragmentation patterns, enabling structurally related molecules to be identified even when exact matches are not present in databases.
+        Molecular networking is a computational approach that groups compounds based on similarities in their MS/MS fragmentation patterns, enabling structurally related molecules to be identified even when exact matches are not present in databases~\cite{Wang2016}.
         
-        Existing tools such as Global Natural Products Social Molecular Networking (GNPS) are widely used for this purpose; however, GNPS is primarily designed for natural product datasets and is not optimized for environmental contaminant analysis.
+        Existing tools such as Global Natural Products Social Molecular Networking (GNPS) are widely used for this purpose; however, GNPS is primarily designed for natural product datasets and is not optimized for environmental contaminant analysis~\cite{Schmid2021,Wang2016}.
         As shown in Figure 6, this can lead to gaps in annotation when applied to environmental samples. Therefore, a custom computational workflow will be developed to better suit the characteristics of environmental HRMS data.
 
-        Spectral similarity between features will be quantified using cosine similarity scoring. In this approach, each MS/MS spectrum is represented as a vector, where fragment ions (m/z values) are paired with their corresponding intensities.
-        Before comparison, spectra are typically filtered and aligned so that only matching or near-matching fragment ions are considered.
+        Spectral similarity between features will be quantified using cosine similarity scoring. In this approach, each MS/MS spectrum is represented as a vector, where fragment ions (m/z values) are paired with their corresponding intensities~\cite{Bittremieux2022}.
+        Before comparison, spectra are typically filtered and aligned so that only matching or near-matching fragment ions are considered~\cite{DallaValle2025}.
         The cosine similarity score between two spectra is calculated as:
 
         \[
@@ -155,7 +155,7 @@
         \end{figure}
 
     \subsection{Structural Interpretation and Data Analysis}
-        Structural interpretation will focus on analyzing mass differences and fragmentation patterns within molecular networks to propose tentative structures for unknown compounds.
+        Structural interpretation will focus on analyzing mass differences and fragmentation patterns within molecular networks to propose tentative structures for unknown compounds~\cite{Zahn2024}.
         These mass shifts are of particular interest because they often correspond to known environmental transformation processes, such as oxidation, reduction, or functional group modification. For example:
 
         \begin{itemize}
@@ -164,9 +164,9 @@
             \item A mass change of +16 Da combined with loss of 2 hydrogen atoms may indicate the formation of a carbonyl group through oxidation.
         \end{itemize}
 
-        These transformations are well-documented in environmental chemistry and provide insight into degradation pathways and secondary pollutant formation.
+        These transformations are well-documented in environmental chemistry and provide insight into degradation pathways and secondary pollutant formation~\cite{Zahn2024}.
 
-        Fragmentation patterns will be analyzed alongside these mass differences to strengthen structural hypotheses. 
+        Fragmentation patterns will be analyzed alongside these mass differences to strengthen structural hypotheses~\cite{Schmid2021}.
         A molecular networking framework (Figure 7) will be used to visualize relationships between features and support the identification of unknown compounds based on their similarity to known structures.
 
         This integrated workflow enables (1) comprehensive MS/MS data acquisition, (2) identification of known contaminants using existing libraries, and (3) extension beyond current databases through molecular networking, directly supporting the three specific aims of this study.
