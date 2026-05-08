@@ -45,7 +45,38 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \centering
+
+    % Logo
+    \vspace*{1cm}
+    \includegraphics[width=0.50\textwidth]{imgs/woosterlogo.png}
+    
+    \vspace{2cm}
+
+    % Department Information
+    {\Large The Department of Chemistry\par}
+    \vspace{0.3cm}
+    {\large CHEM 401: Introduction to Independent Study\par}
+
+    \vspace{3cm}
+
+    % Title
+    {\Large \textbf{
+    Computational Identification of Unknown Organic Contaminants and Molecules in Remote Environments via Molecular Networking
+    }\par}
+
+    \vspace{3cm}
+
+    % Author
+    {\Large Raelyn Brooks\par}
+
+    \vfill
+
+    % Date
+    {\Large May 2026\par}
+
+\end{titlepage}
 
 \begin{doublespace}
 \newpage
@@ -73,7 +104,7 @@
 
     \subsection{Environmental Contaminants}
     The pervasive and increasing presence of anthropogenic chemicals in the environment represents a major global challenge, requiring advanced analytical approaches to understand their distribution and impact.
-    Human activities, including industrial processes, agriculture, and consumer product use, continuously release a wide range of chemicals such as pesticides, pharmaceuticals, industrial compounds, and plasticizers into the environment~\cite{Manz, Blais2015}.
+    Human activities, including industrial processes, agriculture, and consumer product use, continuously release a wide range of chemicals such as pesticides, pharmaceuticals, industrial compounds, and plasticizers into the environment~\cite{Manz, Blais2015, Wilkinson2022}.
     Many of these compounds are persistent and mobile, allowing them to spread far beyond their original sources and become globally distributed contaminants.
 
     As a result, these chemicals have been detected even in remote ecosystems, including high-altitude regions such as Mount Everest, Kilimanjaro, and the Qinghai–Tibetan Plateau~\cite{Daly2005, Xu2011, Ma2025, Catalan2015}.
@@ -83,8 +114,8 @@
     High-altitude environments are particularly vulnerable due to their unique climatic and environmental conditions.
     Snow plays a critical role in these systems, acting as an efficient scavenger of atmospheric pollutants by capturing both gas-phase and particle-bound compounds~\cite{Herbert2006}.
     Additionally, low temperatures in these regions slow chemical degradation, allowing contaminants to persist and accumulate over time~\cite{Daly2005}.
-    Upon snowmelt, these accumulated contaminants can be released into surface waters, potentially impacting fragile alpine ecosystems and downstream environments.
-    
+    Upon snowmelt, these accumulated contaminants can be released into surface waters, potentially impacting fragile alpine ecosystems and downstream environments.~\cite{Meyer2008}.
+
 
     \subsection{The Global Problem: Widespread Dispersion of Anthropogenic Chemicals}
     The continuous release of anthropogenic chemicals has resulted in their widespread presence across the globe.
@@ -124,7 +155,7 @@
     Once airborne, these compounds can undergo chemical transformations, including oxidation and photolysis, which influence their persistence and environmental behavior~\cite{Zahn2024}.
 
     The long-range transport of these contaminants is often described by the “grasshopper effect,” in which compounds repeatedly volatilize, travel through the atmosphere, and redeposit in cooler regions.
-    This process enables contaminants to travel thousands of kilometers from their original sources and accumulate in high-altitude and polar environments~\cite{Daly2005, Xu2011}.
+    This process enables contaminants to travel thousands of kilometers from their original sources and accumulate in high-altitude and polar environments~\cite{Daly2005, Xu2011, Catalan2015}.
 
     Mountain regions further enhance contaminant deposition through several mechanisms, including:
 
@@ -139,14 +170,15 @@
     Traditional environmental analysis has relied heavily on targeted methods, which focus on a predefined list of known contaminants. 
     While effective for monitoring regulated compounds, these approaches fail to capture the full diversity of chemicals present in environmental samples~\cite{Manz}.
 
+
     High-resolution mass spectrometry (HRMS), combined with non-targeted analysis (NTA) and suspect screening, has emerged as a powerful approach for detecting a wide range of known and unknown compounds in complex environmental matrices~\cite{Schulze2020, Hupatz2025}.
-    These methods enable the detection of thousands of molecular features in a single sample, many of which cannot be matched to existing databases.
+    These methods enable the detection of thousands of molecular features in a single sample, many of which cannot be matched to existing databases.~\cite{Hupatz2025}.
 
     Previous studies have demonstrated the effectiveness of HRMS-based NTA in identifying contaminants such as pharmaceuticals, pesticides, and industrial chemicals in environmental samples~\cite{Gray2022, NinoSuastegui2025}.
     However, a significant limitation remains: many detected features cannot be confidently identified due to incomplete reference libraries.
 
     To address this challenge, this project applies molecular networking as a complementary computational approach to extend identification beyond existing databases.
-    Molecular networking groups compounds based on MS/MS similarity, enabling structurally related molecules to be linked even in the absence of direct database matches~\cite{Wang2016, Schmid2021}.
+    Molecular networking groups compounds based on MS/MS similarity, enabling structurally related molecules to be linked even in the absence of direct database matches~\cite{Wang2016, Schmid2021, Bittremieux2022}.
     This approach allows for the propagation of annotations and the identification of “known unknowns,” significantly expanding the scope of contaminant identification.
 
     The significance of this research lies in its ability to improve contaminant identification in remote environments, generate more comprehensive chemical profiles, and address critical gaps in current environmental monitoring frameworks.
@@ -337,48 +369,66 @@
 
 \section{Projected Timeline and Budget}
     \subsection{Timeline}
-        \begin{center}
-            \begin{ganttchart}[
-                canvas/.style={draw=black!50, fill=white},
-                hgrid,
-                vgrid={*1{black!10}}, 
-                x unit=0.4cm,           % Small enough to fit most pages
-                y unit title=0.7cm,
-                y unit chart=0.8cm,
-                title label font=\bfseries\tiny,
-                bar/.style={fill=blue!60},
-                bar height=0.6,
-                progress label text={},
-                group right shift=0,
-                group top shift=0.7,
-                group height=.3
-                ]{1}{32}
+        \begin{ganttchart}[
+            canvas/.style={draw=black!50, fill=white},
+            hgrid,
+            vgrid={*1{black!10}},
+            x unit=0.45cm,
+            y unit title=0.40cm,
+            y unit chart=0.6cm,
+            title label font=\bfseries\tiny,
+            bar label font=\scriptsize,
+            group label font=\small\bfseries,
+            bar/.style={fill=blue!60},
+            bar height=0.5,
+            progress label text={},
+            group right shift=0,
+            group top shift=0.6,
+            group height=.3
+            ]{1}{28}
 
-                % Month Headings
-                \gantttitle{August}{4} \gantttitle{September}{4} 
-                \gantttitle{October}{4} \gantttitle{November}{4} 
-                \gantttitle{December}{4} \gantttitle{January}{4} 
-                \gantttitle{February}{4} \gantttitle{March}{4} \\
-                
-                \gantttitlelist{1,...,32}{1} \\
+            % Month headings
+            \gantttitle{Aug}{2}
+            \gantttitle{Sep}{4}
+            \gantttitle{Oct}{4}
+            \gantttitle{Nov}{4}
+            \gantttitle{Dec}{4}
+            \gantttitle{Jan}{4}
+            \gantttitle{Feb}{4}
+            \gantttitle{Mar}{2} \\
 
-                % Tasks
-                \ganttgroup{Phase 1}{1}{8} \\
-                \ganttbar{Initial Research}{1}{6} \\
-                \ganttbar{Setup}{7}{8} \\
-                
-                \ganttgroup{Phase 2}{9}{24} \\
-                \ganttbar{Data Collection}{9}{16} \\
-                \ganttbar{Implementation}{17}{24} \\
-                
-                \ganttgroup{Phase 3}{25}{32} \\
-                \ganttbar{Analysis}{25}{28} \\
-                \ganttbar{Final Report}{29}{31} \\
-                \ganttmilestone{Submission}{32}
+            \gantttitlelist{1,...,28}{1} \\
 
-            \end{ganttchart}
-        \end{center}
-        
+            % Phase 1
+            \ganttgroup{Phase 1: Method Setup}{1}{8} \\
+            \ganttbar{Literature Review}{1}{4} \\
+            \ganttbar{LC-HRMS Optimization}{2}{6} \\
+            \ganttbar{Gradient and DDA Setup}{4}{8} \\
+
+            % Phase 2
+            \ganttgroup{Phase 2: Data Acquisition}{7}{18} \\
+            \ganttbar{Sample Analysis}{7}{14} \\
+            \ganttbar{Iterative DDA Runs}{8}{15} \\
+            \ganttbar{MS-DIAL Processing}{12}{17} \\
+            \ganttbar{QC and Blank Removal}{13}{18} \\
+            \ganttbar{Suspect Screening}{15}{18} \\
+
+            % Phase 3
+            \ganttgroup{Phase 3: Molecular Networking}{16}{22} \\
+            \ganttbar{Network Construction}{16}{20} \\
+            \ganttbar{Cosine Similarity Analysis}{17}{21} \\
+            \ganttbar{Unknown Identification}{19}{22} \\
+
+            % Phase 4
+            \ganttgroup{Phase 4: Thesis Writing}{19}{28} \\
+            \ganttbar{Results and Figures}{19}{22} \\
+            \ganttbar{Thesis Drafting}{21}{26} \\
+            \ganttbar{Advisor Review}{25}{27} \\
+            \ganttbar{Final Revisions}{26}{28} \\
+            \ganttmilestone{Submission}{28}
+
+        \end{ganttchart}
+\newpage
     \subsection{Budget}
         \begin{table}[htbp]
             \centering
@@ -390,20 +440,26 @@
                 \midrule
                 
                 % Instruments
-                LC Column (C18 Reverse Phase) & Sigma-Aldrich & Instrument Room & \$850.00 & 1 \\
+                Agilent 1260 Infinity II HPLC & Department Instrumentation & Instrument Room & \$0.00 & 1 \\
+                Agilent 6546 QTOF-MS & Department Instrumentation & Instrument Room & \$0.00 & 1 \\
+                LC Column (C18 Reverse Phase) & Sigma-Aldrich & Instrument Room & \$0.00 & 1 \\
                 
                 % Solvents (Gradient Elution - Both Modes)
-                LCMS Grade Water & VWR & Solvent Cabinet & \$120.00 & 4 \\
-                LCMS Grade Methanol & Sigma-Aldrich & Flammable Cabinet & \$150.00 & 4 \\
+                LCMS Grade Water & VWR & Chemical Storage & \$120.00 & 4 \\
+                LCMS Grade Methanol & Sigma-Aldrich & Chemical Storage & \$150.00 & 4 \\
                 
                 % Positive Mode Additive
-                Formic Acid (Optima LC/MS Grade) & Fisher Scientific & Acid Cabinet & \$65.00 & 2 \\
+                Formic Acid (Optima LC/MS Grade) & Fisher Scientific & Chemical Storage & \$65.00 & 2 \\
                 
                 % Negative Mode Additive
                 Ammonium Acetate (LCMS Grade) & Sigma-Aldrich & Chemical Storage & \$85.00 & 2 \\
                 
+                % Software / Computational
+                MS-DIAL Software & Open-Source Software & Laboratory Computers & \$0.00 & 1 \\
+                GNPS Molecular Networking Platform & GNPS & Laboratory Computers & \$0.00 & 1 \\
+
                 \midrule
-                \textbf{Total} & & & \textbf{\$3,067.00} & \\
+                \textbf{Total} & & & \textbf{\$775.00} & \\
                 \bottomrule
             \end{tabularx}
         \end{table}
