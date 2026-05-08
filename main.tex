@@ -30,7 +30,15 @@
 \usepackage{achemso}
 \setkeys{acs}{articletitle=true}
 
-\title{\textbf{Project Topic}}
+% ---------- Timeline ----------
+\usepackage{pgfgantt}
+\usepackage{xcolor}
+
+% ---------- Budget ----------
+\usepackage{booktabs}   % For professional horizontal rules
+\usepackage{tabularx}   % For tables that wrap text and fit page width
+
+\title{\textbf{Computational Identification of Unknown Organic Contaminants and Molecules in Remote Environments via Molecular Networking}}
 \author{Raelyn Brooks}
 \date{\today}
 
@@ -39,43 +47,371 @@
 
 \maketitle
 
-\section{Introduction}
-The introduction will broadly introduce your topic, motivate it, and describe what will be done.
+\begin{doublespace}
+\newpage
 
-\section{Related Works}
-Discuss prior research and how your work builds on or differs from existing studies.
+\section{Summary}
+    The widespread distribution of anthropogenic organic contaminants in remote high-altitude environments highlights a critical gap in our understanding of global chemical pollution.
+    Compounds originating from industrial activity, agriculture, and consumer products can undergo long-range atmospheric transport and accumulate in regions such as the Himalayas, the Qinghai–Tibetan Plateau, and Mount Kilimanjaro.
+    While previous studies have identified select contaminants in these environments, a large fraction of detected chemical features remain uncharacterized due to limitations in traditional targeted analytical approaches.
+    This project addresses this gap by asking: to what extent can non-targeted, high-resolution mass spectrometry approaches expand the identification of unknown organic contaminants in remote surface waters?
 
-\section{Methodology}
-Dijkstra's algorithm was chosen for single-source shortest path computation on graphs with non-negative edge weights, following the implementation presented in CLRS~\cite{clrsAlgorithms}.
+    The central hypothesis of this study is that a significant portion of unidentified molecular features detected in environmental samples can be identified or tentatively identified using non-targeted analysis combined with molecular networking.
+    The goal is to identify both known contaminants and previously unannotated molecular features, thereby extending current environmental chemical databases rather than fully characterizing every compound.
 
-\section{Results}
-An exemplary figure is shown in Figure. Any time a figure is used, it must have a caption and be directly referred to and discussed in the text.
+    To achieve this, surface water samples from remote high-altitude regions will be analyzed using liquid chromatography coupled with high-resolution mass spectrometry (LC-HRMS). Data acquisition will employ iterative data-dependent acquisition (DDA) to maximize MS/MS spectral coverage across both high- and low-abundance compounds.
+    Resulting data will be processed using feature detection and alignment workflows to generate a comprehensive set of molecular features.
 
-% How to reference: Figure~\ref{fig:dijkstra}
-% Figure placement options:
-%\begin{figure}[b] puts the image to the (closest) bottom of page
-%\begin{figure}[t] puts the image to the (closest) top of page
-%\begin{figure}[h] allows the image to float, putting it roughly wherever it was placed in the text.
-%\begin{figure}[b] 
-%\begin{center}
-% \includegraphics[width=5cm]{imgs/dijkstra.png}
-%  \caption{Dijkstra's algorithm does not work on graphs with negative edge weights, as evidenced here.}
-%  \label{fig:dijkstra}
-% \end{center}
-%\end{figure}
+    Identification will proceed in two stages. First, suspect screening will be performed by matching detected features against curated chemical databases using accurate mass, MS/MS fragmentation patterns, and retention time information to identify known contaminants.
+    Second, non-targeted analysis will be applied to features that remain unidentified. Molecular networking based on MS/MS spectral similarity (cosine similarity scoring) will be used to group structurally related compounds, enabling unknown features to be linked to known chemical classes.
+    Structural interpretation will leverage mass differences and fragmentation behavior to support tentative identification of these unknown compounds.
 
-\begin{figure}[b]
-\centering
-\includegraphics[width=5cm]{imgs/dijkstra.png}
-\caption{Dijkstra's algorithm does not work on graphs with negative edge weights, as evidenced here.}
-\label{fig:dijkstra}
-\end{figure}
+    This integrated approach provides a more comprehensive framework for identifying contaminants in remote environments by combining database-driven methods with computational analysis of unknowns.
+    The results will improve detection coverage, expand existing contaminant databases, and strengthen our understanding of global contaminant transport into sensitive high-altitude ecosystems.
 
-\section{Conclusion}
-Summarize results, implications, and possible future work.
+\section{Background and Significance}
+
+    \subsection{Environmental Contaminants}
+    The pervasive and increasing presence of anthropogenic chemicals in the environment represents a major global challenge, requiring advanced analytical approaches to understand their distribution and impact.
+    Human activities, including industrial processes, agriculture, and consumer product use, continuously release a wide range of chemicals such as pesticides, pharmaceuticals, industrial compounds, and plasticizers into the environment~\cite{Manz, Blais2015}.
+    Many of these compounds are persistent and mobile, allowing them to spread far beyond their original sources and become globally distributed contaminants.
+
+    As a result, these chemicals have been detected even in remote ecosystems, including high-altitude regions such as Mount Everest, Kilimanjaro, and the Qinghai–Tibetan Plateau~\cite{Daly2005, Xu2011, Ma2025, Catalan2015}.
+    The presence of anthropogenic markers such as caffeine, pharmaceuticals, and industrial additives in these environments highlights the extent of human impact on global chemical cycles~\cite{Gray2022, NinoSuastegui2025}.
+
+    The global spread of these contaminants poses significant ecological risks.
+    High-altitude environments are particularly vulnerable due to their unique climatic and environmental conditions.
+    Snow plays a critical role in these systems, acting as an efficient scavenger of atmospheric pollutants by capturing both gas-phase and particle-bound compounds~\cite{Herbert2006}.
+    Additionally, low temperatures in these regions slow chemical degradation, allowing contaminants to persist and accumulate over time~\cite{Daly2005}.
+    Upon snowmelt, these accumulated contaminants can be released into surface waters, potentially impacting fragile alpine ecosystems and downstream environments.
+    
+
+    \subsection{The Global Problem: Widespread Dispersion of Anthropogenic Chemicals}
+    The continuous release of anthropogenic chemicals has resulted in their widespread presence across the globe.
+    Many of these compounds, including persistent organic pollutants (POPs) and emerging contaminants, can undergo long-range atmospheric transport (LRAT), allowing them to reach remote regions far from their sources~\cite{Daly2005,Xu2011}.
+    This process contributes to the global distribution of diverse chemical classes, including pesticides, pharmaceuticals, polycyclic aromatic hydrocarbons (PAHs), and plasticizers.
+
+    Previous environmental studies using non-targeted analysis (NTA) have demonstrated the presence of thousands of chemical features in environmental samples, highlighting the complexity of environmental chemical mixtures~\cite{Schulze2020, Manz}.
+    For example, HRMS-based studies have identified pesticides and pharmaceuticals in precipitation and snow samples, demonstrating that atmospheric transport is a major pathway for contaminant deposition~\cite{NinoSuastegui2025, Gray2022}.
+
+    The widespread occurrence of these compounds contributes to the environmental “exposome,” which represents the totality of environmental exposures experienced over time~\cite{Manz}.
+    However, a large fraction of detected chemical features remains unidentified due to limitations in existing chemical databases, emphasizing the need for improved analytical and computational approaches.
+
+    \subsection{Why Remote Peaks? Kilimanjaro and the Himalayas as “Cold Traps}
+    Remote high-altitude environments such as the Himalayas and the Qinghai–Tibetan Plateau serve as critical locations for studying global contaminant transport.
+    Because these regions lack significant local pollution sources, the detection of contaminants provides strong evidence of long-range atmospheric transport ~\cite{Daly2005, Ma2025}.
+
+    These environments act as “cold traps,” where semi-volatile organic compounds (SVOCs) condense and accumulate due to decreasing temperatures with altitude~\cite{Daly2005, Herbert2006}.
+    This process, often referred to as global or altitudinal fractionation, results in the enrichment of certain contaminants at higher elevations.
+    The combination of low temperatures, high precipitation (especially snow), and complex terrain enhances deposition and retention of contaminants in these regions~\cite{Herbert2006, Catalan2015}.
+
+     \begin{figure}[h] 
+            \centering
+            \includegraphics[scale=0.40]{imgs/Daly_SVOCs.png}
+            \caption{Air-surface exchange of semi-volatile organic contaminants (SVOCs) along a temperate mountain slope across different seasons~\cite{Daly2005}.}
+            \label{fig:AirSurfaceExchange}
+    \end{figure}
+
+    Previous studies have demonstrated the presence of persistent contaminants such as organochlorine pesticides and industrial chemicals in high-altitude environments, even decades after their use has been restricted~\cite{Xu2011, Daly2005}.
+    These findings highlight the importance of high-altitude ecosystems as reservoirs of global pollution and emphasize the need for continued monitoring.
+
+    Despite this, there remain significant gaps in our understanding of organic contaminants in regions such as the Qinghai–Tibetan Plateau, particularly with respect to unknown and emerging compounds~\cite{Ma2025}.
+    This gap motivates the need for advanced analytical approaches capable of detecting and identifying a broader range of contaminants.
+
+
+    \subsection{Atmospheric Chemistry and Transport Mechanisms}
+    Organic contaminants enter the atmosphere through processes such as volatilization, combustion, and agricultural application.
+    Once airborne, these compounds can undergo chemical transformations, including oxidation and photolysis, which influence their persistence and environmental behavior~\cite{Zahn2024}.
+
+    The long-range transport of these contaminants is often described by the “grasshopper effect,” in which compounds repeatedly volatilize, travel through the atmosphere, and redeposit in cooler regions.
+    This process enables contaminants to travel thousands of kilometers from their original sources and accumulate in high-altitude and polar environments~\cite{Daly2005, Xu2011}.
+
+    Mountain regions further enhance contaminant deposition through several mechanisms, including:
+
+    \begin{itemize}
+        \item Orographic precipitation, which increases scavenging of airborne pollutants.
+        \item Snow deposition, which efficiently captures contaminants~\cite{Herbert2006}.
+        \item Temperature gradients, which drive cold trapping and chemical partitioning.
+    \end{itemize}
+    These processes make high-altitude environments particularly sensitive indicators of global contaminant transport and transformation.
+
+    \subsection{Significance: Advancing Identification Beyond Traditional Targeted Approaches}
+    Traditional environmental analysis has relied heavily on targeted methods, which focus on a predefined list of known contaminants. 
+    While effective for monitoring regulated compounds, these approaches fail to capture the full diversity of chemicals present in environmental samples~\cite{Manz}.
+
+    High-resolution mass spectrometry (HRMS), combined with non-targeted analysis (NTA) and suspect screening, has emerged as a powerful approach for detecting a wide range of known and unknown compounds in complex environmental matrices~\cite{Schulze2020, Hupatz2025}.
+    These methods enable the detection of thousands of molecular features in a single sample, many of which cannot be matched to existing databases.
+
+    Previous studies have demonstrated the effectiveness of HRMS-based NTA in identifying contaminants such as pharmaceuticals, pesticides, and industrial chemicals in environmental samples~\cite{Gray2022, NinoSuastegui2025}.
+    However, a significant limitation remains: many detected features cannot be confidently identified due to incomplete reference libraries.
+
+    To address this challenge, this project applies molecular networking as a complementary computational approach to extend identification beyond existing databases.
+    Molecular networking groups compounds based on MS/MS similarity, enabling structurally related molecules to be linked even in the absence of direct database matches~\cite{Wang2016, Schmid2021}.
+    This approach allows for the propagation of annotations and the identification of “known unknowns,” significantly expanding the scope of contaminant identification.
+
+    The significance of this research lies in its ability to improve contaminant identification in remote environments, generate more comprehensive chemical profiles, and address critical gaps in current environmental monitoring frameworks.
+    By combining advanced HRMS workflows with molecular networking, this study contributes to a more complete understanding of global contaminant distribution and supports future efforts in environmental risk assessment and policy development.
+
+\section{Specific Aims}
+    \subsection{Goal}
+    This project aims to identify organic contaminants in surface water samples from remote high-altitude environments using high-resolution mass spectrometry (HRMS).
+    Remote environments such as high-altitude regions are known to accumulate contaminants through long-range atmospheric transport, making them important systems for studying global pollutant distribution~\cite{Daly2005, Xu2011, Catalan2015}.
+    While database-driven approaches enable identification of known contaminants, many environmental samples contain complex mixtures that are not fully represented in existing libraries, resulting in substantial gaps in identification coverage~\cite{Schulze2020, Manz}.
+    I hypothesize that a significant fraction of these uncharacterized molecules can be annotated and assigned putative identities through non-targeted analysis, particularly molecular networking, which enables structurally related compounds to be grouped based on MS/MS similarity even in the absence of direct database matches~\cite{Wang2016, Schmid2021}.
+    Together, these approaches will improve contaminant identification and extend existing chemical databases for remote environmental systems.
+
+    \subsection{Aim 1: Comprehensive MS/MS Data Acquisition}
+    The first aim is to generate a comprehensive and high-quality MS/MS dataset from surface water samples using liquid chromatography coupled with high-resolution mass spectrometry (LC-HRMS).
+    High-resolution mass spectrometry is widely used in environmental non-targeted analysis due to its ability to detect a broad range of known and unknown compounds with high mass accuracy~\cite{Fisher2022, Hupatz2025}.
+    Chromatographic separation will be performed using a C18 reverse-phase column with gradient elution to separate compounds across a range of polarities, improving detection of chemically diverse contaminants. 
+    Samples will be analyzed in both positive and negative electrospray ionization (ESI) modes to maximize compound coverage across different ionization behaviors~\cite{Wenkai}.
+
+    Data acquisition will be performed using an iterative data-dependent acquisition (DDA) strategy, in which each sample is analyzed across multiple runs with dynamically updated exclusion lists to increase fragmentation coverage of detected features~\cite{Koelmel2017}.
+    This approach improves detection of low-abundance compounds and enhances overall MS/MS coverage in complex environmental mixtures.
+    High-quality data acquisition is a critical foundation for non-targeted identification workflows and directly impacts downstream annotation performance~\cite{Schulze2020}.
+    The outcome of this aim will be a comprehensive feature-rich dataset suitable for contaminant identification.
+
+    \subsection{Aim 2: Identification of Known Contaminants Using Existing Library}
+    The second aim is to identify known contaminants of emerging concern (CECs) using suspect screening approaches based on existing chemical databases (EPA contaminant database).
+    Non-targeted and suspect screening workflows are widely used to assess environmental contaminants in complex matrices such as water and snow samples~\cite{Gray2022,NinoSuastegui2025}.
+    Processed HRMS data will be analyzed using software such as MS-DIAL for feature detection, alignment, and spectral matching~\cite{Tsugawa2015}.
+    Compound identification will rely on accurate mass measurements, MS/MS spectral similarity, isotopic patterns, and retention time as complementary parameters for annotation~\cite{Kind2018}.
+    
+    Confidence in compound identification will be evaluated using the Schymanski framework, which provides standardized levels of identification certainty in non-targeted analysis~\cite{Schymanski2014}.
+    This approach enables systematic identification of known contaminants while highlighting gaps in existing databases and prioritizing features for further analysis~\cite{Manz, Chao2025}.
+    The outcome of this aim will establish a baseline profile of confidently annotated known contaminants.
+
+
+    \subsection{Aim 3: Extension of Contaminant Identification Beyond Current Databases Through Molecular Networking}
+    The third aim is to extend contaminant identification beyond existing databases by applying molecular networking to assign putative identities to unknown features.
+    Molecular networking is a computational approach that groups MS/MS spectra based on fragmentation similarity and has been widely applied for large-scale analysis of complex chemical datasets~\cite{Wang2016}.
+    Spectral similarity will be quantified using cosine similarity scoring, a standard method for comparing MS/MS spectra and constructing molecular networks~\cite{Schmid2021, Bittremieux2022}.
+    Preprocessing steps such as spectral filtering and alignment improve the reliability of similarity scoring and network construction~\cite{DallaValle2025, Olivon2017}.
+
+    Rather than full structural characterization, this approach will focus on propagating annotations and assigning likely structural relationships between unknown and known compounds within molecular networks.
+    Transformation products are a major source of unknown chemical features in environmental systems and are often not captured in existing databases, contributing to gaps in identification~\cite{Zahn2024, Ma2025}.
+    By leveraging spectral similarity and mass difference relationships, this aim will enable identification of previously unannotated compounds and provide insight into contaminant transformation patterns.
+
+    The outcome of this aim will be an expanded set of annotated and putatively identified contaminants, addressing key limitations in current non-targeted analysis workflows and improving coverage of environmental chemical space.
+
+
+\section{Research Design and Methods}
+    \subsection{Hypothesis}
+    This project aims to identify contaminants of emerging concern (CECs) in surface water samples from remote, high-altitude environments, including Mt. Everest, the Tibetan Plateau, Qinghai Lake, and Mt. Kilimanjaro, using high-resolution mass spectrometry (HRMS). 
+    While existing database-driven, targeted approaches can successfully identify known contaminants, most current software and reference libraries are not well optimized for complex environmental matrices, leaving significant gaps in identification coverage. 
+    I hypothesize that a substantial fraction of these unidentified molecules can be assigned through non-targeted analysis, particularly molecular networking, thereby extending existing contaminant databases. 
+    Together, these approaches will improve contaminant identification in remote environmental systems where current reference frameworks are incomplete.
+
+        \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=1.00]{imgs/NTAvsTA.jpg}
+            \caption{Comparison of non-targeted analysis (NTA) and targeted analysis (TA) approaches for identification of organic contaminants~\cite{Schulze2020}.}
+            \label{fig:NTA vs TA} % Unique label for referencing
+        \end{figure}
+
+     \subsection{High-Resolution Mass Spectrometry Data Acquisition}
+        All samples will be analyzed using liquid chromatography coupled with high-resolution mass spectrometry (LC-HRMS) using an Agilent 1260 Infinity II HPLC and Agilent 6546 QTOF-MS.
+        Chromatographic separation will be performed using a C18 reverse-phase column, allowing for the retention and separation of semi-polar to nonpolar organic compounds.
+        
+        LCMS-grade water and LCMS-grade methanol will be used for all mobile phases to ensure minimal background contamination.
+        Data will be acquired in both positive and negative electrospray ionization (ESI) modes to maximize compound coverage.
+        For positive ionization mode, the mobile phase will consist of 0.1\% formic acid in LCMS-grade water (aqueous phase) and methanol with 0.1\% formic acid (organic phase)~\cite{Wenkai}.
+        For negative ionization mode, the mobile phase will consist of 10 mM ammonium acetate in LCMS-grade water (aqueous phase) and 10 mM ammonium acetate in methanol (organic phase)~\cite{Wenkai}.
+        Gradient elution will be used in both modes to separate compounds across a range of polarities.
+
+        The analytical workflow will begin with MS1 full-scan acquisition to detect all ionizable features present in the samples. 
+        From these data, exclusion and inclusion lists will be generated (Figure~\ref{fig:ExclusionList}).
+        The exclusion list will contain background contaminants high-abundance ions that do not require repeated fragmentation, while the inclusion list will prioritize features of interest, particularly those matching entries in existing chemical databases~\cite{Koelmel2017}.
+
+        Subsequent analyses will employ MS/MS acquisition using an iterative data-dependent acquisition (DDA) strategy.
+        In DDA, precursor ions are selected in real time based on their intensity for fragmentation. 
+        In this study, each sample will be analyzed across 3–4 iterative runs.
+        After each run, previously fragmented ions are added to an exclusion list, allowing subsequent runs to target new, lower-abundance features.
+        This iterative process increases MS/MS coverage by systematically expanding fragmentation across the detected feature space, improving the likelihood of identifying both known and unknown compounds in complex environmental mixtures.
+
+        \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.45]{imgs/ExclusionList.png}
+            \caption{Example of exclusion and inclusion of features to establish our lists.~\cite{Koelmel2017}}
+            \label{fig:ExclusionList} % Unique label for referencing
+        \end{figure}
+
+    \subsection{Data Processing and Feature Extraction}
+        Raw LC-HRMS data will be processed using MS-DIAL v5.5.250530.
+        Data processing will include peak detection, alignment across samples, and feature annotation. 
+        A representative workflow is shown in Figure 3; although this figure illustrates data-independent acquisition (DIA), the overall processing steps are similar to those used for data-dependent acquisition (DDA) in this study.
+
+        \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.40]{imgs/workflowMSDial.png}
+            \caption{This workflow illustrates data independent acquisition (DIA) using MS Dial while different from our data dependent acquisition (DDA) we are seeking something similar.~\cite{Tsugawa2015}}
+            \label{fig:MSDial Workflow} % Unique label for referencing
+        \end{figure}
+
+        Detected signals will initially be treated as features, defined by their mass-to-charge ratio (m/z), retention time, and associated MS/MS spectra.
+        A feature is only considered a confirmed compound once sufficient evidence supports its identification.
+
+        Quality control steps, including blank subtraction and filtering of low-confidence signals, will be applied to remove background contaminants~\cite{Schulze2020}.
+        The resulting feature table will represent the set of detected molecular features across all samples and will serve as the basis for downstream identification and analysis.
+
+    \subsection{Suspect Screening for Known Contaminants}
+        To identify contaminants of emerging concern (CECs), suspect screening will be performed using curated chemical databases, such as the Agilent environmental contaminant database.
+        Figure 4 illustrates how MS/MS spectral databases are constructed and used in conjunction with LC-HRMS data to identify compounds based on fragmentation patterns.
+
+        Features will be matched to database entries using a combination of accurate mass, MS/MS spectral similarity, isotopic pattern, and retention time~\cite{Kind2018}. 
+        Retention time serves as an important orthogonal parameter that strengthens confidence in candidate matches.
+        
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.75]{imgs/Kind.png}
+            \caption{This figure illustrates the MS/MS database creation and how LCMS is used to identify compounds based on their fragmentation patterns~\cite{Kind2018}.}
+            \label{fig: MS/MS} % Unique label for referencing
+        \end{figure}
+        Candidate annotations will be evaluated using the Schymanski framework, which classifies identification confidence into levels based on available evidence (Figure 5)~\cite{Schymanski2014}.
+        These levels reflect the degree of confidence in a proposed identification rather than representing definitive assignments. 
+        This approach enables identification of known contaminants while simultaneously highlighting gaps in existing chemical databases where features cannot be confidently matched~\cite{Manz}.
+
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.30]{imgs/CILevels.png}
+            \caption{Confidence levels example for molecular feature identification based on the Schymanski framework.~\cite{Schymanski2014}}
+            \label{fig:Schymanski Levels} % Unique label for referencing
+        \end{figure}
+
+    \subsection{Molecular Networking and Non-Targeted Analysis}
+        To extend beyond database-driven identification, molecular networking will be used to characterize unknown features not identified through suspect screening.
+        Molecular networking is a computational approach that groups compounds based on similarities in their MS/MS fragmentation patterns, enabling structurally related molecules to be identified even when exact matches are not present in databases~\cite{Wang2016}.
+        
+        Existing tools such as Global Natural Products Social Molecular Networking (GNPS) are widely used for this purpose; however, GNPS is primarily designed for natural product datasets and is not optimized for environmental contaminant analysis~\cite{Schmid2021,Wang2016}.
+        As shown in Figure 6, this can lead to gaps in annotation when applied to environmental samples. Therefore, a custom computational workflow will be developed to better suit the characteristics of environmental HRMS data.
+
+        Spectral similarity between features will be quantified using cosine similarity scoring. In this approach, each MS/MS spectrum is represented as a vector, where fragment ions (m/z values) are paired with their corresponding intensities~\cite{Bittremieux2022}.
+        Before comparison, spectra are typically filtered and aligned so that only matching or near-matching fragment ions are considered~\cite{DallaValle2025}.
+        The cosine similarity score between two spectra is calculated as:
+
+        \[
+        \text{Cosine Similarity} = \frac{\sum (A_i \cdot B_i)}{\sqrt{\sum (A_i^2)} \cdot \sqrt{\sum (B_i^2)}}
+        \] 
+
+        where \(A_i\) and \(B_i\) represent the intensities of matching fragment ions in the two spectra. 
+        This calculation measures how similar two fragmentation patterns are, with scores ranging from 0 (no similarity) to 1 (identical spectra).
+
+        This method considers:
+        \begin{itemize}
+            \item The presence of shared fragment ions (m/z alignment)
+            \item The relative intensities of those fragments
+        \end{itemize}
+        A cosine similarity threshold of greater than or equal to 0.70 will be used to define meaningful structural similarity between an unknown feature and a known compound (known pesticides or contaminants). 
+        Features exceeding this threshold will be grouped and used to construct a molecular similarity graph, enabling identification of structurally related unknowns.
+
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.25]{imgs/GNPS.png}
+            \caption{This example of Global Natural Product Social (GNPS) molecular networking illustrates the relationships between different molecular features but this is not fitted for environmental samples which causes gaps~\cite{Schmid2021}.}
+            \label{fig:GNPS} % Unique label for referencing
+        \end{figure}
+
+    \subsection{Structural Interpretation and Data Analysis}
+        Structural interpretation will focus on analyzing mass differences and fragmentation patterns within molecular networks to propose tentative structures for unknown compounds~\cite{Zahn2024}.
+        These mass shifts are of particular interest because they often correspond to known environmental transformation processes, such as oxidation, reduction, or functional group modification. For example:
+
+        \begin{itemize}
+            \item A mass increase of +16 Da may indicate the addition of an oxygen atom, commonly associated with hydroxylation reactions.
+            \item A mass shift of +14 Da may suggest methylation.
+            \item A mass change of +16 Da combined with loss of 2 hydrogen atoms may indicate the formation of a carbonyl group through oxidation.
+        \end{itemize}
+
+        These transformations are well-documented in environmental chemistry and provide insight into degradation pathways and secondary pollutant formation~\cite{Zahn2024}.
+
+        Fragmentation patterns will be analyzed alongside these mass differences to strengthen structural hypotheses~\cite{Schmid2021}.
+        A molecular networking framework (Figure 7) will be used to visualize relationships between features and support the identification of unknown compounds based on their similarity to known structures.
+
+        This integrated workflow enables (1) comprehensive MS/MS data acquisition, (2) identification of known contaminants using existing libraries, and (3) extension beyond current databases through molecular networking, directly supporting the three specific aims of this study.
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.30]{imgs/IonMW.png}
+            \caption{This diagram illustrates how a molecular network can be constructed from MS/MS data, enabling the identification of unknown compounds based on their fragmentation patterns while this is ion identity molecular networking a similar graph will be constructed~\cite{Schmid2021}.}
+            \label{fig: Ion Identity Molecular Networking} % Unique label for referencing
+        \end{figure}
+
+
+\section{Projected Timeline and Budget}
+    \subsection{Timeline}
+        \begin{center}
+            \begin{ganttchart}[
+                canvas/.style={draw=black!50, fill=white},
+                hgrid,
+                vgrid={*1{black!10}}, 
+                x unit=0.4cm,           % Small enough to fit most pages
+                y unit title=0.7cm,
+                y unit chart=0.8cm,
+                title label font=\bfseries\tiny,
+                bar/.style={fill=blue!60},
+                bar height=0.6,
+                progress label text={},
+                group right shift=0,
+                group top shift=0.7,
+                group height=.3
+                ]{1}{32}
+
+                % Month Headings
+                \gantttitle{August}{4} \gantttitle{September}{4} 
+                \gantttitle{October}{4} \gantttitle{November}{4} 
+                \gantttitle{December}{4} \gantttitle{January}{4} 
+                \gantttitle{February}{4} \gantttitle{March}{4} \\
+                
+                \gantttitlelist{1,...,32}{1} \\
+
+                % Tasks
+                \ganttgroup{Phase 1}{1}{8} \\
+                \ganttbar{Initial Research}{1}{6} \\
+                \ganttbar{Setup}{7}{8} \\
+                
+                \ganttgroup{Phase 2}{9}{24} \\
+                \ganttbar{Data Collection}{9}{16} \\
+                \ganttbar{Implementation}{17}{24} \\
+                
+                \ganttgroup{Phase 3}{25}{32} \\
+                \ganttbar{Analysis}{25}{28} \\
+                \ganttbar{Final Report}{29}{31} \\
+                \ganttmilestone{Submission}{32}
+
+            \end{ganttchart}
+        \end{center}
+        
+    \subsection{Budget}
+        \begin{table}[htbp]
+            \centering
+            \caption{Project Budget: Chemicals and Instrumentation}
+            \label{tab:chemical_budget}
+            \begin{tabularx}{\textwidth}{@{} l X X r c @{}}
+                \toprule
+                \textbf{Chemical/Instrument} & \textbf{Source} & \textbf{Location} & \textbf{Cost} & \textbf{Quantity} \\
+                \midrule
+                
+                % Instruments
+                LC Column (C18 Reverse Phase) & Sigma-Aldrich & Instrument Room & \$850.00 & 1 \\
+                
+                % Solvents (Gradient Elution - Both Modes)
+                LCMS Grade Water & VWR & Solvent Cabinet & \$120.00 & 4 \\
+                LCMS Grade Methanol & Sigma-Aldrich & Flammable Cabinet & \$150.00 & 4 \\
+                
+                % Positive Mode Additive
+                Formic Acid (Optima LC/MS Grade) & Fisher Scientific & Acid Cabinet & \$65.00 & 2 \\
+                
+                % Negative Mode Additive
+                Ammonium Acetate (LCMS Grade) & Sigma-Aldrich & Chemical Storage & \$85.00 & 2 \\
+                
+                \midrule
+                \textbf{Total} & & & \textbf{\$3,067.00} & \\
+                \bottomrule
+            \end{tabularx}
+        \end{table}
+
+\end{doublespace}
 
 % ---------- References ----------
-\bibliographystyle{achemso}
+\newpage
 \bibliography{bibliography.bib}
 
 \end{document}

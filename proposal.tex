@@ -30,6 +30,9 @@
 \usepackage{achemso}
 \setkeys{acs}{articletitle=true}
 
+\usepackage{pgfgantt}
+\usepackage{xcolor}
+
 % ---------- Title ----------
 \title{\textbf{Project Topic}}
 \author{Raelyn Brooks}
@@ -51,6 +54,49 @@ When you use an image, such as in Figure~\ref{fig:method}, refer to it in the te
 \end{center}
 \end{figure}
 
+\section{Project Timeline}
+
+\begin{center}
+\begin{ganttchart}[
+    canvas/.style={draw=black!50, fill=white},
+    hgrid,
+    vgrid={*1{black!10}}, 
+    x unit=0.4cm,           % Small enough to fit most pages
+    y unit title=0.7cm,
+    y unit chart=0.8cm,
+    title label font=\bfseries\tiny,
+    bar/.style={fill=blue!60},
+    bar height=0.6,
+    progress label text={},
+    group right shift=0,
+    group top shift=0.7,
+    group height=.3
+    ]{1}{32}
+
+    % Month Headings
+    \gantttitle{August}{4} \gantttitle{September}{4} 
+    \gantttitle{October}{4} \gantttitle{November}{4} 
+    \gantttitle{December}{4} \gantttitle{January}{4} 
+    \gantttitle{February}{4} \gantttitle{March}{4} \\
+    
+    \gantttitlelist{1,...,32}{1} \\
+
+    % Tasks
+    \ganttgroup{Phase 1}{1}{8} \\
+    \ganttbar{Initial Research}{1}{6} \\
+    \ganttbar{Setup}{7}{8} \\
+    
+    \ganttgroup{Phase 2}{9}{24} \\
+    \ganttbar{Data Collection}{9}{16} \\
+    \ganttbar{Implementation}{17}{24} \\
+    
+    \ganttgroup{Phase 3}{25}{32} \\
+    \ganttbar{Analysis}{25}{28} \\
+    \ganttbar{Final Report}{29}{31} \\
+    \ganttmilestone{Submission}{32}
+
+\end{ganttchart}
+\end{center}
 
 \newpage
 \section*{Appendix}
