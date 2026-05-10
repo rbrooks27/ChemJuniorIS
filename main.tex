@@ -38,11 +38,6 @@
 \usepackage{booktabs}   % For professional horizontal rules
 \usepackage{tabularx}   % For tables that wrap text and fit page width
 
-\title{\textbf{Computational Identification of Unknown Organic Contaminants and Molecules in Remote Environments via Molecular Networking}}
-\author{Raelyn Brooks}
-\date{\today}
-
-
 \begin{document}
 
 \begin{titlepage}
@@ -134,20 +129,27 @@
 
     These environments act as “cold traps,” where semi-volatile organic compounds (SVOCs) condense and accumulate due to decreasing temperatures with altitude~\cite{Daly2005, Herbert2006}.
     This process, often referred to as global or altitudinal fractionation, results in the enrichment of certain contaminants at higher elevations.
-    The combination of low temperatures, high precipitation (especially snow), and complex terrain enhances deposition and retention of contaminants in these regions~\cite{Herbert2006, Catalan2015}.
-
-     \begin{figure}[h] 
+    The combination of low temperatures, high precipitation (especially snow), and complex terrain enhances deposition and retention of contaminants in these regions~\cite{Herbert2006, Catalan2015} as seen in Figure \ref{fig:AirSurfaceExchange}.
+     \begin{figure}[H] 
             \centering
             \includegraphics[scale=0.40]{imgs/Daly_SVOCs.png}
             \caption{Air-surface exchange of semi-volatile organic contaminants (SVOCs) along a temperate mountain slope across different seasons~\cite{Daly2005}.}
             \label{fig:AirSurfaceExchange}
     \end{figure}
 
-    Previous studies have demonstrated the presence of persistent contaminants such as organochlorine pesticides and industrial chemicals in high-altitude environments, even decades after their use has been restricted~\cite{Xu2011, Daly2005}.
+
+
+    Previous studies have demonstrated the presence of persistent contaminants such as organochlorine pesticides and industrial chemicals in high-altitude environments as seen in Figure \ref{fig:ContaminantData}~\cite{Daly2005, Xu2011}.
     These findings highlight the importance of high-altitude ecosystems as reservoirs of global pollution and emphasize the need for continued monitoring.
 
     Despite this, there remain significant gaps in our understanding of organic contaminants in regions such as the Qinghai–Tibetan Plateau, particularly with respect to unknown and emerging compounds~\cite{Ma2025}.
     This gap motivates the need for advanced analytical approaches capable of detecting and identifying a broader range of contaminants.
+     \begin{figure}[H] 
+            \centering
+            \includegraphics[scale=0.75]{imgs/DalyData.png}
+            \caption{Organic contaminant concentrations in mountain air measured by Daly et al. (2005)~\cite{Daly2005}.}
+            \label{fig:ContaminantData}
+    \end{figure}
 
 
     \subsection{Atmospheric Chemistry and Transport Mechanisms}
@@ -160,10 +162,18 @@
     Mountain regions further enhance contaminant deposition through several mechanisms, including:
 
     \begin{itemize}
-        \item Orographic precipitation, which increases scavenging of airborne pollutants.
+        \item Orographic precipitation, which increases scavenging of airborne pollutants~\cite{Catalan2015}.
         \item Snow deposition, which efficiently captures contaminants~\cite{Herbert2006}.
-        \item Temperature gradients, which drive cold trapping and chemical partitioning.
+        \item Temperature gradients, which drive cold trapping and chemical partitioning as seen in Figure \ref{fig:Transport Mechanism}.
     \end{itemize}
+    
+      \begin{figure}[h] 
+            \centering
+            \includegraphics[scale=1.15]{imgs/TransportMech.png}
+            \caption{Transport mechanisms of atmospheric contaminants in mountainous regions and what physical factors drive the accumulation of these pollutants.~\cite{Catalan2015}}
+            \label{fig:Transport Mechanism}
+    \end{figure}
+
     These processes make high-altitude environments particularly sensitive indicators of global contaminant transport and transformation.
 
     \subsection{Significance: Advancing Identification Beyond Traditional Targeted Approaches}
@@ -256,7 +266,7 @@
         The exclusion list will contain background contaminants high-abundance ions that do not require repeated fragmentation, while the inclusion list will prioritize features of interest, particularly those matching entries in existing chemical databases~\cite{Koelmel2017}.
 
         Subsequent analyses will employ MS/MS acquisition using an iterative data-dependent acquisition (DDA) strategy.
-        In DDA, precursor ions are selected in real time based on their intensity for fragmentation. 
+        In DDA, precursor ions are selected in real time after a MS-only scan based on their sufficiently high intensity for fragmentation. 
         In this study, each sample will be analyzed across 3–4 iterative runs.
         After each run, previously fragmented ions are added to an exclusion list, allowing subsequent runs to target new, lower-abundance features.
         This iterative process increases MS/MS coverage by systematically expanding fragmentation across the detected feature space, improving the likelihood of identifying both known and unknown compounds in complex environmental mixtures.
@@ -269,9 +279,9 @@
         \end{figure}
 
     \subsection{Data Processing and Feature Extraction}
-        Raw LC-HRMS data will be processed using MS-DIAL v5.5.250530.
+        Raw LC-HRMS data will be processed using MS-DIAL v5.5.2505300.
         Data processing will include peak detection, alignment across samples, and feature annotation. 
-        A representative workflow is shown in Figure 3; although this figure illustrates data-independent acquisition (DIA), the overall processing steps are similar to those used for data-dependent acquisition (DDA) in this study.
+        A representative workflow is shown in Figure ~\ref{fig:MSDial Workflow}; although this figure illustrates data-independent acquisition (DIA), the overall processing steps are similar to those used for data-dependent acquisition (DDA) in this study.
 
         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
             \centering
@@ -280,15 +290,15 @@
             \label{fig:MSDial Workflow} % Unique label for referencing
         \end{figure}
 
-        Detected signals will initially be treated as features, defined by their mass-to-charge ratio (m/z), retention time, and associated MS/MS spectra.
-        A feature is only considered a confirmed compound once sufficient evidence supports its identification.
+        Detected signals will initially be treated as features till confirmed with a match by MS-DIAL which identifies and quantifies the features before assigning annotations to them or molecular networking using cosine similarity scoring, these features are defined by their mass-to-charge ratio (m/z), retention time, and associated MS/MS spectra.
+        Moreover, a feature is only considered a confirmed compound once sufficient evidence supports its identification.
 
         Quality control steps, including blank subtraction and filtering of low-confidence signals, will be applied to remove background contaminants~\cite{Schulze2020}.
         The resulting feature table will represent the set of detected molecular features across all samples and will serve as the basis for downstream identification and analysis.
 
     \subsection{Suspect Screening for Known Contaminants}
-        To identify contaminants of emerging concern (CECs), suspect screening will be performed using curated chemical databases, such as the Agilent environmental contaminant database.
-        Figure 4 illustrates how MS/MS spectral databases are constructed and used in conjunction with LC-HRMS data to identify compounds based on fragmentation patterns.
+        To identify contaminants of emerging concern (CECs), suspect screening will be performed using mass spectra databases, such as the Agilent environmental contaminant database.
+        Figure ~\ref{fig:MS} illustrates how MS/MS spectral databases are constructed and used in conjunction with LC-HRMS data to identify compounds based on fragmentation patterns.
 
         Features will be matched to database entries using a combination of accurate mass, MS/MS spectral similarity, isotopic pattern, and retention time~\cite{Kind2018}. 
         Retention time serves as an important orthogonal parameter that strengthens confidence in candidate matches.
@@ -297,55 +307,142 @@
             \centering
             \includegraphics[scale=0.75]{imgs/Kind.png}
             \caption{This figure illustrates the MS/MS database creation and how LCMS is used to identify compounds based on their fragmentation patterns~\cite{Kind2018}.}
-            \label{fig: MS/MS} % Unique label for referencing
+            \label{fig:MS} % Unique label for referencing
         \end{figure}
-        Candidate annotations will be evaluated using the Schymanski framework, which classifies identification confidence into levels based on available evidence (Figure 5)~\cite{Schymanski2014}.
-        These levels reflect the degree of confidence in a proposed identification rather than representing definitive assignments. 
-        This approach enables identification of known contaminants while simultaneously highlighting gaps in existing chemical databases where features cannot be confidently matched~\cite{Manz}.
+        Candidate annotations will be evaluated using the Schymanski framework, which classifies identification confidence into levels based on available evidence (Figure ~\ref{fig:SchymanskiLevels})~\cite{Schymanski2014}.
+        The Schymanski levels reflect the degree of confidence in a proposed identification rather than representing definitive assignments.
+        The usage of the levels approach enables identification of known contaminants while simultaneously highlighting gaps in existing chemical databases where features cannot be confidently matched~\cite{Manz}.
 
          \begin{figure}[H] % Suggests figure placement (here, top, bottom)
             \centering
             \includegraphics[scale=0.30]{imgs/CILevels.png}
             \caption{Confidence levels example for molecular feature identification based on the Schymanski framework.~\cite{Schymanski2014}}
-            \label{fig:Schymanski Levels} % Unique label for referencing
+            \label{fig:SchymanskiLevels} % Unique label for referencing
         \end{figure}
 
     \subsection{Molecular Networking and Non-Targeted Analysis}
-        To extend beyond database-driven identification, molecular networking will be used to characterize unknown features not identified through suspect screening.
+        To extend beyond database-driven identification, molecular networking will be used to identify unknown features.
         Molecular networking is a computational approach that groups compounds based on similarities in their MS/MS fragmentation patterns, enabling structurally related molecules to be identified even when exact matches are not present in databases~\cite{Wang2016}.
         
         Existing tools such as Global Natural Products Social Molecular Networking (GNPS) are widely used for this purpose; however, GNPS is primarily designed for natural product datasets and is not optimized for environmental contaminant analysis~\cite{Schmid2021,Wang2016}.
-        As shown in Figure 6, this can lead to gaps in annotation when applied to environmental samples. Therefore, a custom computational workflow will be developed to better suit the characteristics of environmental HRMS data.
-
-        Spectral similarity between features will be quantified using cosine similarity scoring. In this approach, each MS/MS spectrum is represented as a vector, where fragment ions (m/z values) are paired with their corresponding intensities~\cite{Bittremieux2022}.
-        Before comparison, spectra are typically filtered and aligned so that only matching or near-matching fragment ions are considered~\cite{DallaValle2025}.
-        The cosine similarity score between two spectra is calculated as:
-
-        \[
-        \text{Cosine Similarity} = \frac{\sum (A_i \cdot B_i)}{\sqrt{\sum (A_i^2)} \cdot \sqrt{\sum (B_i^2)}}
-        \] 
-
-        where \(A_i\) and \(B_i\) represent the intensities of matching fragment ions in the two spectra. 
-        This calculation measures how similar two fragmentation patterns are, with scores ranging from 0 (no similarity) to 1 (identical spectra).
-
-        This method considers:
-        \begin{itemize}
-            \item The presence of shared fragment ions (m/z alignment)
-            \item The relative intensities of those fragments
-        \end{itemize}
-        A cosine similarity threshold of greater than or equal to 0.70 will be used to define meaningful structural similarity between an unknown feature and a known compound (known pesticides or contaminants). 
-        Features exceeding this threshold will be grouped and used to construct a molecular similarity graph, enabling identification of structurally related unknowns.
+        As shown in Figure~\ref{fig:GNPS} GNPS is the exact workflow we are seeking but can lead to gaps in annotation when applied to environmental samples. Therefore, a custom computational workflow will be developed to better suit the characteristics of environmental HRMS data.
 
          \begin{figure}[H] % Suggests figure placement (here, top, bottom)
             \centering
             \includegraphics[scale=0.25]{imgs/GNPS.png}
-            \caption{This example of Global Natural Product Social (GNPS) molecular networking illustrates the relationships between different molecular features but this is not fitted for environmental samples which causes gaps~\cite{Schmid2021}.}
+            \caption{This figure illustrates the GNPS molecular networking approach. It first connects and sorts ions, then annotates them based on their spectral similarities and finally proposes a structure~\cite{Schmid2021}.}
+            \label{fig:GNPS} % Unique label for referencing
+        \end{figure}
+
+        Spectral similarity between molecular features will be evaluated using cosine similarity scoring of MS/MS fragmentation spectra~\cite{Bittremieux2022, Frank2008}.
+        Cosine similarity is a mathematical approach used to measure how similar two vectors are by calculating the cosine of the angle between them. 
+        For two vectors, \(x\) and \(y\), the dot product is defined as:
+
+        \[
+        x \cdot y = x_1y_1 + x_2y_2
+        \]
+
+        This relationship can also be expressed geometrically as:
+
+        \[
+        x \cdot y = |x||y|\cos(\theta)
+        \]
+
+        where \(\theta\) is the angle between the two vectors and \(|x|\) and \(|y|\) represent the magnitudes of the vectors. 
+        By rearranging the equation, the cosine similarity between the vectors becomes:
+
+        \[
+        \text{similarity} = \cos(\theta) =
+        \frac{x \cdot y}{|x||y|}
+        \]
+
+        For positive vector values, cosine similarity ranges from 0 to 1:
+        \begin{itemize}
+            \item A value of 1 indicates identical vectors
+            \item A value of 0 indicates completely unrelated or orthogonal vectors
+        \end{itemize}
+
+        This concept can be expanded to \(n\)-dimensional vectors:
+
+        \[
+        \text{similarity} =
+        \frac{\sum_{i=1}^{n} x_i y_i}
+        {\sqrt{\sum_{i=1}^{n} x_i^2}\sqrt{\sum_{i=1}^{n} y_i^2}}
+        \]
+
+        In MS/MS spectral analysis, each fragmentation spectrum is represented as a vector composed of fragment ion peaks defined by their mass-to-charge ratio (\(m/z\)) and corresponding intensity values. 
+        To improve spectral comparison, fragment peaks are weighted according to both their intensity and \(m/z\) value using the weighted intensity function:
+
+        \[
+        W_i = (m/z_i)^2 \sqrt{I_i}
+        \]
+
+        where:
+        \begin{itemize}
+            \item \(m/z_i\) is the mass-to-charge ratio of the \(i^{th}\) fragment ion
+            \item \(I_i\) is the intensity of the \(i^{th}\) fragment ion
+        \end{itemize}
+
+        This weighting increases the contribution of larger and more intense fragment ions to the overall similarity score. 
+        Two spectral vectors are then constructed:
+        \begin{itemize}
+            \item \(E\): experimental spectrum from mass spectra data just like in Figure~\ref{fig: Experimental vs Database}.
+            \item \(D\): database or reference spectrum from a mass spectral database just like in Figure~\ref{fig: Experimental vs Database}.
+        \end{itemize}
+
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.70]{imgs/EvsD.png}
+            \caption{This example illustrates how the experimental spectrum (E) and database spectrum (D) are compared using cosine similarity scoring based on their fragment ion \(m/z\) values and intensities~\cite{Bittremieux2022, Horai2008}.}
+            \label{fig: Experimental vs Database} % Unique label for referencing
+        \end{figure}
+
+        All fragment ion \(m/z\) values from both spectra are combined and aligned in ascending order. 
+        For each aligned \(m/z\) value, one of three cases occurs:
+        \begin{enumerate}
+            \item An experimental peak exists without a matching database peak
+            \item A database peak exists without a matching experimental peak
+            \item Both spectra contain matching fragment ions within a specified mass tolerance
+        \end{enumerate}
+
+        The vectors are populated as follows:
+        \begin{itemize}
+            \item Experimental-only peaks contribute a weighted value to \(E\) and 0 to \(D\)
+            \item Database-only peaks contribute 0 to \(E\) and a weighted value to \(D\)
+            \item Matching peaks contribute weighted values to both vectors
+        \end{itemize}
+
+        The cosine similarity score is then calculated using the normalized dot product of the two weighted vectors:
+
+        \[
+        \text{Cosine Similarity} =
+        \frac{\sum (A_i \cdot B_i)}
+        {\sqrt{\sum (A_i^2)} \cdot \sqrt{\sum (B_i^2)}}
+        \]
+
+        where \(A_i\) and \(B_i\) represent the weighted intensities of aligned fragment ions in the experimental and reference spectra, respectively.
+
+        This scoring method evaluates:
+        \begin{itemize}
+            \item The presence of shared fragment ions
+            \item Relative fragment ion intensities
+            \item Agreement of fragmentation patterns
+            \item Penalties from unmatched peaks
+        \end{itemize}
+
+        Features exceeding 0.25 threshold will be grouped to construct molecular similarity networks, enabling the identification of structurally related unknown compounds and potential environmental transformation products. 
+        An example of this molecular networking workflow is illustrated in Figure~\ref{fig:GNPS}. While the Global Natural Products Social Molecular Networking (GNPS) framework was originally designed for natural product datasets, a similar strategy will be adapted in this study for environmental HRMS analysis.
+
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.25]{imgs/GNPS.png}
+            \caption{This example of Global Natural Product Social (GNPS) molecular networking illustrates the relationships between different molecular features and what is used to identify them based on their similarity to known compounds~\cite{Schmid2021}.}
             \label{fig:GNPS} % Unique label for referencing
         \end{figure}
 
     \subsection{Structural Interpretation and Data Analysis}
         Structural interpretation will focus on analyzing mass differences and fragmentation patterns within molecular networks to propose tentative structures for unknown compounds~\cite{Zahn2024}.
-        These mass shifts are of particular interest because they often correspond to known environmental transformation processes, such as oxidation, reduction, or functional group modification. For example:
+        Mass shifts are of particular interest because they often correspond to known environmental transformation processes, such as oxidation, reduction, or functional group modification. For example:
 
         \begin{itemize}
             \item A mass increase of +16 Da may indicate the addition of an oxygen atom, commonly associated with hydroxylation reactions.
@@ -353,17 +450,24 @@
             \item A mass change of +16 Da combined with loss of 2 hydrogen atoms may indicate the formation of a carbonyl group through oxidation.
         \end{itemize}
 
-        These transformations are well-documented in environmental chemistry and provide insight into degradation pathways and secondary pollutant formation~\cite{Zahn2024}.
-
+        These transformation processes are well-documented in environmental chemistry and provide insight into degradation pathways and secondary pollutant formation~\cite{Zahn2024, Ma2025}.
         Fragmentation patterns will be analyzed alongside these mass differences to strengthen structural hypotheses~\cite{Schmid2021}.
-        A molecular networking framework (Figure 7) will be used to visualize relationships between features and support the identification of unknown compounds based on their similarity to known structures.
+        A feature-based molecular networking framework (Figure ~\ref{fig:Feature-Based Molecular Networking}) will be used to visualize relationships between features and support the identification of unknown compounds based on their similarity to known structures.
 
-        This integrated workflow enables (1) comprehensive MS/MS data acquisition, (2) identification of known contaminants using existing libraries, and (3) extension beyond current databases through molecular networking, directly supporting the three specific aims of this study.
          \begin{figure}[H] % Suggests figure placement (here, top, bottom)
             \centering
-            \includegraphics[scale=0.30]{imgs/IonMW.png}
-            \caption{This diagram illustrates how a molecular network can be constructed from MS/MS data, enabling the identification of unknown compounds based on their fragmentation patterns while this is ion identity molecular networking a similar graph will be constructed~\cite{Schmid2021}.}
-            \label{fig: Ion Identity Molecular Networking} % Unique label for referencing
+            \includegraphics[scale=1.00]{imgs/FeatureBaseMN.png}
+            \caption{This feature based graph shows how ions become connected in a molecular network based on their similarity, facilitating the identification of unknown compounds.~\cite{Schmid2021}. The colors in the graph are by ion identities.}
+            \label{fig:Feature-Based Molecular Networking}
+        \end{figure}
+
+
+        This integrated workflow as seen in Figure \ref{fig:Full Workflow}  enables (1) comprehensive MS/MS data acquisition, (2) identification of known contaminants using existing libraries, and (3) extension beyond current databases through molecular networking, directly supporting the three specific aims of this study.
+         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
+            \centering
+            \includegraphics[scale=0.40]{imgs/ResearchFlow.png}
+            \caption{The full workflow of this project, illustrating how the different components of data acquisition, processing, and analysis are integrated to achieve the research objectives.}
+            \label{fig:Full Workflow}
         \end{figure}
 
 
