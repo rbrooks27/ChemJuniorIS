@@ -327,13 +327,6 @@
         Existing tools such as Global Natural Products Social Molecular Networking (GNPS) are widely used for this purpose; however, GNPS is primarily designed for natural product datasets and is not optimized for environmental contaminant analysis~\cite{Schmid2021,Wang2016}.
         As shown in Figure~\ref{fig:GNPS} GNPS is the exact workflow we are seeking but can lead to gaps in annotation when applied to environmental samples. Therefore, a custom computational workflow will be developed to better suit the characteristics of environmental HRMS data.
 
-         \begin{figure}[H] % Suggests figure placement (here, top, bottom)
-            \centering
-            \includegraphics[scale=0.25]{imgs/GNPS.png}
-            \caption{This figure illustrates the GNPS molecular networking approach. It first connects and sorts ions, then annotates them based on their spectral similarities and finally proposes a structure~\cite{Schmid2021}.}
-            \label{fig:GNPS} % Unique label for referencing
-        \end{figure}
-
         Spectral similarity between molecular features will be evaluated using cosine similarity scoring of MS/MS fragmentation spectra~\cite{Bittremieux2022, Frank2008}.
         Cosine similarity is a mathematical approach used to measure how similar two vectors are by calculating the cosine of the angle between them. 
         For two vectors, \(x\) and \(y\), the dot product is defined as:
@@ -436,7 +429,7 @@
          \begin{figure}[H] % Suggests figure placement (here, top, bottom)
             \centering
             \includegraphics[scale=0.25]{imgs/GNPS.png}
-            \caption{This example of Global Natural Product Social (GNPS) molecular networking illustrates the relationships between different molecular features and what is used to identify them based on their similarity to known compounds~\cite{Schmid2021}.}
+            \caption{This example of Global Natural Product Social (GNPS) molecular networking illustrates the relationships between different molecular features and what is used to identify them based on their similarity to known compounds. It first connects and sorts ions, then annotates them based on their spectral similarities and finally proposes a structure~\cite{Schmid2021}.}
             \label{fig:GNPS} % Unique label for referencing
         \end{figure}
 
